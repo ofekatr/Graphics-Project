@@ -48,7 +48,8 @@ public class Player {
     public void translatef(float x, float y, float z) {
         Vec3[] coords = {this.camera.getSideways(),
                 this.camera.getUp(),
-                this.camera.getLookAt()};
+//                this.camera.getLookAt()};
+                new Vec3(new float[]{0, 0, -1})};
         float[] axisSteps = {this.axisMovementSteps.get(Axes.X),
                 this.axisMovementSteps.get(Axes.Y),
                 this.axisMovementSteps.get(Axes.Z)};
@@ -118,24 +119,24 @@ public class Player {
 //        System.out.println(Arrays.toString(this.camera.get(Main.Axes.X)) + " " + Arrays.toString(this.camera.get(Main.Axes.Y)) + " " + Arrays.toString(this.camera.get(Main.Axes.Z)));
     }
 
-    public void fixCoordinates() {
-        float[] xy, yz, xz;
-        float[] x = this.camera.getSideways().getArray(),
-                y = this.camera.getUp().getArray(),
-                z = this.camera.getLookAt().getArray();
-        xy = MathUtils.normalize(MathUtils.crossProduct3d(x, y));
-        if (!Arrays.equals(xy, z) && !MathUtils.sameVector(xy, z)) {
-            this.camera.setLookAt(new Vec3(MathUtils.vectorScalarProduct(xy, -1)));
-        }
-        yz = MathUtils.normalize(MathUtils.crossProduct3d(y, z));
-        if (!Arrays.equals(yz, x) && !MathUtils.sameVector(yz, x)) {
-            this.camera.setSideways(new Vec3(yz));
-        }
-        xz = MathUtils.normalize(MathUtils.crossProduct3d(x, z));
-        if (!Arrays.equals(xz, y) && !MathUtils.sameVector(xz, y)) {
-            this.camera.setUp(new Vec3(xz));
-        }
-    }
+//    public void fixCoordinates() {
+//        float[] xy, yz, xz;
+//        float[] x = this.camera.getSideways().getArray(),
+//                y = this.camera.getUp().getArray(),
+//                z = this.camera.getLookAt().getArray();
+//        xy = MathUtils.normalize(MathUtils.crossProduct3d(x, y));
+//        if (!Arrays.equals(xy, z) && !MathUtils.sameVector(xy, z)) {
+//            this.camera.setLookAt(new Vec3(MathUtils.vectorScalarProduct(xy, -1)));
+//        }
+//        yz = MathUtils.normalize(MathUtils.crossProduct3d(y, z));
+//        if (!Arrays.equals(yz, x) && !MathUtils.sameVector(yz, x)) {
+//            this.camera.setSideways(new Vec3(yz));
+//        }
+//        xz = MathUtils.normalize(MathUtils.crossProduct3d(x, z));
+//        if (!Arrays.equals(xz, y) && !MathUtils.sameVector(xz, y)) {
+//            this.camera.setUp(new Vec3(xz));
+//        }
+//    }
 
     public Camera getCamera() {
         return camera;

@@ -1,4 +1,4 @@
-package Main;
+package Examples;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
@@ -33,7 +33,7 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     float G = (float)-0.0001;
 
     public static void main(String[] args) {
-        java.awt.Frame frame = new java.awt.Frame("Main.Bounce");	 //create a frame
+        java.awt.Frame frame = new java.awt.Frame("Examples.Bounce");	 //create a frame
         frame.setSize(800, 640);
         frame.setLayout(new java.awt.BorderLayout());
 

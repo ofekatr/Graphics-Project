@@ -1,7 +1,11 @@
-package Main;/* This file was created by: Ofek Atar*/
+package InputHandlers;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
+
+import Main.Axes;
+import Main.MainClass;
+import Main.Player;
 
 import java.awt.*;
 import java.awt.event.*;

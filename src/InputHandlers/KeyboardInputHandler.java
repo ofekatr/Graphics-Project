@@ -1,7 +1,9 @@
-package Main;/* This file was created by: Ofek Atar*/
+package InputHandlers;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
+
+import Main.Player;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.image.MemoryImageSource;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -15,6 +13,7 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 
+import InputHandlers.CameraInputAdapter;
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
 import com.jogamp.newt.event.KeyEvent;
@@ -25,8 +24,8 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 
 public class MainClass extends KeyAdapter implements GLEventListener {
-    static final int width = 1280;
-    static final int height = 720;
+    public static final int width = 1280;
+    public static final int height = 720;
     private final CameraInputAdapter inputHandler;
 
 //    private float xrot = 0;
@@ -100,15 +99,6 @@ public class MainClass extends KeyAdapter implements GLEventListener {
                                boolean modeChanged, boolean deviceChanged) {
     }
 
-    private void initSchedueler() {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                inputHandler.fixCoordinates();
-            }
-        }, 3000, 3000);
-    }
 
     public void setInvisibleCursor() {
         int[] pixels = new int[16 * 16];
