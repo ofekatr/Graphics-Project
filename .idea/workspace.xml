@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Main/PlayerObject.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Axes.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Bounce$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Bounce$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Bounce.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Camera.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/CameraInputAdapter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/KeyboardInputHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/MathLib/MathUtils.class" afterPath="$PROJECT_DIR$/out/production/Ex3/MathLib/MathUtils.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Player$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Player.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/TextureDemo$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/TextureDemo$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/TextureDemo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ex3/Vec3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Testings.java" afterPath="$PROJECT_DIR$/src/Main/Testings.java" />
-      <change beforePath="$PROJECT_DIR$/src/MathLib/MathUtils.java" afterPath="$PROJECT_DIR$/src/MathLib/MathUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Testings.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main/Testings.java">
+      <file leaf-file-name="ObjDemo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Examples/ObjDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
-              <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+            <state relative-caret-position="77">
+              <caret line="128" column="49" lean-forward="true" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -53,21 +36,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mousemoved</find>
-      <find>height</find>
-      <find>CURSOR</find>
-      <find>static cur</find>
-      <find>static</find>
-      <find>cursor</find>
-      <find>reshap</find>
       <find>loadobjmodel</find>
       <find>if (</find>
       <find>display(</find>
       <find>file</find>
       <find>display</find>
-      <find>main</find>
       <find>axe_</find>
-      <find>axe</find>
       <find>vdata</find>
       <find>vData</find>
       <find>getvdata</find>
@@ -83,6 +57,15 @@
       <find>get</find>
       <find>cleanup</find>
       <find>return arg</find>
+      <find>axe</find>
+      <find>main</find>
+      <find>texture.</find>
+      <find>tex</find>
+      <find>texture</find>
+      <find>texture =</find>
+      <find>translatef</find>
+      <find>translate</find>
+      <find>scalef</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,10 +111,10 @@
         <option value="$PROJECT_DIR$/src/CollisionDetection/AABB.java" />
         <option value="$PROJECT_DIR$/src/Main/WavefrontObjectLoader_DisplayList.java" />
         <option value="$PROJECT_DIR$/src/Main/ObjectLoader.java" />
-        <option value="$PROJECT_DIR$/src/Examples/ObjDemo.java" />
         <option value="$PROJECT_DIR$/src/Main/PlayerObject.java" />
         <option value="$PROJECT_DIR$/src/MathLib/MathUtils.java" />
         <option value="$PROJECT_DIR$/src/Main/Testings.java" />
+        <option value="$PROJECT_DIR$/src/Examples/ObjDemo.java" />
       </list>
     </option>
   </component>
@@ -155,13 +138,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -190,9 +178,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -223,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Testings">
+  <component name="RunManager" selected="Application.ObjDemo (1)">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -408,8 +396,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Testings" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ObjDemo (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ObjDemo (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Testings" />
         <item index="2" class="java.lang.String" itemvalue="Application.ObjDemo" />
         <item index="3" class="java.lang.String" itemvalue="Application.MainClass" />
         <item index="4" class="java.lang.String" itemvalue="Application.TextureDemo" />
@@ -444,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596288596846</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Player Object class&#10;Tested AABB&#10;Added argmin, argmax methods.">
+      <created>1596292478593</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596292478593</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -468,13 +463,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.327252" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19384265" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19011815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16487648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -524,7 +519,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Separated box drawing part.&#10;Added Object Loader - Curr can only load 1 object.&#10;Added Kapah example with axe." />
     <MESSAGE value="Separated classes to packages.&#10;Added collision detection interface.&#10;Added AABB collision detection class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Separated classes to packages.&#10;Added collision detection interface.&#10;Added AABB collision detection class." />
+    <MESSAGE value="Added Player Object class&#10;Tested AABB&#10;Added argmin, argmax methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Player Object class&#10;Tested AABB&#10;Added argmin, argmax methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -537,15 +533,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main/ObjectLoader.java</url>
-          <line>260</line>
+          <line>198</line>
           <properties />
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="46" />
+      <option name="time" value="48" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -838,9 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -848,14 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
           <caret line="254" column="2" lean-forward="true" selection-start-line="254" selection-start-column="2" selection-end-line="254" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/ObjectLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -871,24 +856,9 @@
         <state relative-caret-position="342">
           <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding>
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="false" />
+            <element signature="e#375#376#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Examples/ObjDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../jogl2/jogl-all.jar!/jogamp/opengl/GLDrawableHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="1104" column="0" lean-forward="false" selection-start-line="1104" selection-start-column="0" selection-end-line="1104" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -897,9 +867,9 @@
         <state relative-caret-position="351">
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#226#227#0" expanded="false" />
+            <element signature="e#255#256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,8 +879,8 @@
         <state relative-caret-position="283">
           <caret line="3798" column="30" lean-forward="false" selection-start-line="3798" selection-start-column="30" selection-end-line="3798" selection-end-column="30" />
           <folding>
-            <element signature="e#177013#177014#0" expanded="true" />
-            <element signature="e#177054#177055#0" expanded="true" />
+            <element signature="e#177013#177014#0" expanded="false" />
+            <element signature="e#177054#177055#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -935,14 +905,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Testings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="32" column="47" lean-forward="true" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+        <state relative-caret-position="315">
+          <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../jogl2/jogl-all.jar!/jogamp/opengl/GLDrawableHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="1069" column="0" lean-forward="false" selection-start-line="1069" selection-start-column="0" selection-end-line="1069" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/ObjectLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Examples/ObjDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="128" column="49" lean-forward="true" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
           <folding />
         </state>
       </provider>
