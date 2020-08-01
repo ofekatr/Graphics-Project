@@ -15,8 +15,8 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     public MouseInputHandler(Player camera) {
         this.camera = camera;
-        this.midX = ex2.width / 2;
-        this.midY = ex2.height / 2;
+        this.midX = MainClass.width / 2;
+        this.midY = MainClass.height / 2;
         this.ignore = false;
         this.prev = MouseInfo.getPointerInfo().getLocation();
     }
@@ -38,12 +38,14 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
     public void mouseMoved(MouseEvent e) {
         if (!this.ignore) {
 //            10 38
-            int x = e.getX() + 8, y = e.getY() + 32;
+//            8 32
+            int x = e.getX() + 10, y = e.getY() + 38;
+//            int x = e.getX(), y = e.getY();
             float xDiff = Math.abs(this.midX - x), yDiff = Math.abs(this.midY - y);
-            System.out.println(xDiff + " " + yDiff);
-            float angX = this.calcAngle(this.midX, x, ex2.width);
+//            System.out.println(xDiff + " " + yDiff);
+            float angX = this.calcAngle(this.midX, x, MainClass.width);
             this.camera.rotatef(angX, Axes.Y);
-            float angY = this.calcAngle(this.midY, y, ex2.height);
+            float angY = this.calcAngle(this.midY, y, MainClass.height);
             this.camera.rotatef(angY, Axes.X);
             this.prev = e.getPoint();
             this.centerMouse();

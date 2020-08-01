@@ -12,6 +12,7 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
+import javax.swing.*;
 
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
@@ -22,7 +23,7 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
 
-public class ex2 extends KeyAdapter implements GLEventListener {
+public class MainClass extends KeyAdapter implements GLEventListener {
     static final int width = 1280;
     static final int height = 720;
     private final CameraInputAdapter inputHandler;
@@ -43,7 +44,7 @@ public class ex2 extends KeyAdapter implements GLEventListener {
     static Frame frame = new Frame("Jogl 3D Shape/Rotation");
     static Animator animator = new Animator(canvas);
 
-    public ex2() {
+    public MainClass() {
         this.inputHandler = new CameraInputAdapter();
 //        this.initSchedueler();
     }
@@ -85,69 +86,8 @@ public class ex2 extends KeyAdapter implements GLEventListener {
 //        gl.glTexParameteri( GL.GL_TEXTURE_2D,GL.GL_TEXTURE_WRAP_S, GL.GL_CLAMP );
         texture.bind(gl);
 
-        gl.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE, material, 0);
-        gl.glBegin(GL2.GL_QUADS);
-        // Front Face
-        gl.glNormal3f(0, 0, 1);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 1.0f);
-        gl.glTexCoord2f(2f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, 1.0f);
-        gl.glTexCoord2f(2f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
-        // Back Face
-        gl.glNormal3f(0, 0, -1);
-        gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-        gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, -1.0f);
-        // Top Face
-        gl.glNormal3f(0, 1, 0);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
-        gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        // Bottom Face
-        gl.glNormal3f(0, -1, 0);
-        gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(1.0f, -1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, 1.0f);
-        gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 1.0f);
-        // Right face
-        gl.glNormal3f(1, 0, 0);
-        gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, -1.0f);
-        gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, 1.0f);
-        // Left Face
-        gl.glNormal3f(-1, 0, 0);
-        gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-        gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 1.0f);
-        gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
-        gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-        gl.glEnd();
+        BoxShapeObject b = new BoxShapeObject();
+        b.draw(gl);
         gl.glPopMatrix();
 
 //        xrot += 0.03f;
@@ -234,6 +174,7 @@ public class ex2 extends KeyAdapter implements GLEventListener {
         }
     }
 
+
     public void reshape(GLAutoDrawable drawable, int x,
                         int y, int width, int height) {
         GL2 gl = drawable.getGL().getGL2();
@@ -307,7 +248,7 @@ public class ex2 extends KeyAdapter implements GLEventListener {
     }
 
     public static void main(String[] args) {
-        canvas.addGLEventListener(new ex2());
+        canvas.addGLEventListener(new MainClass());
         frame.add(canvas);
         frame.setSize(width, height);
 //		frame.setUndecorated(true);
@@ -326,6 +267,11 @@ public class ex2 extends KeyAdapter implements GLEventListener {
             }
         });
         frame.setVisible(true);
+
+//        Dimension actualSize = frame.getContentPane().getSize();
+//        int wDiff = actualSize.width - width, hDiff = actualSize.height - height;
+//        System.out.println(wDiff + ", " + hDiff);
+//        frame.setSize(width - wDiff, height - hDiff);
         animator.start();
         canvas.requestFocus();
     }

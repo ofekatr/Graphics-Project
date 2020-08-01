@@ -14,6 +14,5 @@ public class Testings {
         float[][] r = MathUtils.generateVectorRotationMatrix(vec, (float) Math.toRadians(90));
         float[] point = {5, 0, 5};
         float[] res = MathUtils.product(r, point);
-        System.out.println(Arrays.toString(res));
     }
 }
