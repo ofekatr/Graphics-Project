@@ -229,7 +229,7 @@ public final class MathUtils {
 
     public static int argmin(List<Float> vals) {
         float[] arr = listToArray(vals);
-        return argmin(vals);
+        return argmin(arr);
     }
 
     public static float[] listToArray(List<Float> lst) {

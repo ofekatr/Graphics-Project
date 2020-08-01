@@ -3,16 +3,37 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import CollisionDetection.AABB;
+import CollisionDetection.CollisionDetector;
 import MathLib.MathUtils;
 
 import java.util.Arrays;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Testings {
     public static void main(String[] args) {
-        float[] vec = {0, 0, 1};
-        vec = MathUtils.normalize(vec);
-        float[][] r = MathUtils.generateVectorRotationMatrix(vec, (float) Math.toRadians(90));
-        float[] point = {5, 0, 5};
-        float[] res = MathUtils.product(r, point);
+        CollisionDetector coll = new AABB();
+        Drawable a = new PlayerObject(Arrays.asList(
+                new Vec3(new float[]{0, 0, 0}),
+                new Vec3(new float[]{8, 0, 0}),
+                new Vec3(new float[]{8, 8, 0}),
+                new Vec3(new float[]{0, 8, 0}),
+                new Vec3(new float[]{0, 8, 8}),
+                new Vec3(new float[]{8, 8, 8}),
+                new Vec3(new float[]{8, 0, 8}),
+                new Vec3(new float[]{0, 0, 8})
+        ));
+        Drawable b = new PlayerObject(Arrays.asList(
+                new Vec3(new float[]{2, 2, 2}),
+                new Vec3(new float[]{4, 2, 2}),
+                new Vec3(new float[]{4, 4, 2}),
+                new Vec3(new float[]{2, 4, 2}),
+                new Vec3(new float[]{2, 4, 4}),
+                new Vec3(new float[]{4, 4, 4}),
+                new Vec3(new float[]{4, 2, 4}),
+                new Vec3(new float[]{2, 2, 4})
+        ));
+
+        System.out.println(coll.intersect(b, a));
     }
 }
