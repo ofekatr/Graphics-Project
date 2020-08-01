@@ -1,4 +1,4 @@
-/* This file was created by: Ofek Atar*/
+package Main;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
@@ -62,7 +62,7 @@ public class Camera {
     }
 
     public Vec3 getLookAt() {
-//        return new Vec3(MathUtils.sumVectors(this.pos.getArray(), this.lookAt.getArray()));
+//        return new Main.Vec3(MathUtils.sumVectors(this.pos.getArray(), this.lookAt.getArray()));
         return this.lookAt;
     }
 

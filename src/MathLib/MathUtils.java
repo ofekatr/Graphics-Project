@@ -5,6 +5,7 @@
 package MathLib;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static java.lang.Float.NaN;
 
@@ -207,4 +208,44 @@ public final class MathUtils {
         }
         return true;
     }
+
+    public static int argmax(float[] vals) {
+        float maxVal = Float.NEGATIVE_INFINITY;
+        int maxInd = -1;
+        for (int i = 0; i < vals.length; i++) {
+            if (vals[i] > maxVal) {
+                maxVal = vals[i];
+                maxInd = i;
+            }
+        }
+        return maxInd;
+    }
+
+    public static int argmin(float[] vals) {
+        for (int i = 0; i < vals.length; i++)
+            vals[i] = -vals[i];
+        return argmax(vals);
+    }
+
+    public static int argmin(List<Float> vals) {
+        float[] arr = listToArray(vals);
+        return argmin(vals);
+    }
+
+    public static float[] listToArray(List<Float> lst) {
+        int i = 0;
+        float[] arr = new float[lst.size()];
+        for (Float f : lst) {
+            arr[i++] = (f != null ? f : Float.NaN);
+        }
+        return arr;
+    }
+
+    public static int argmax(List<Float> vals) {
+        // Convert float list to float array.
+        float[] arr = listToArray(vals);
+        // Use the array implementation.
+        return argmax(arr);
+    }
+
 }

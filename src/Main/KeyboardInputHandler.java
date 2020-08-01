@@ -1,4 +1,4 @@
-/* This file was created by: Ofek Atar*/
+package Main;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
@@ -28,15 +28,15 @@ public class KeyboardInputHandler extends KeyAdapter {
         initializeMap();
     }
 
-//    public Vec3 getPos() {
+//    public Main.Vec3 getPos() {
 //        return this.player.getCamera().getPos();
 //    }
 //
-//    public Vec3 getUp() {
+//    public Main.Vec3 getUp() {
 //        return this.player.getCamera().getUp();
 //    }
 //
-//    public Vec3 getLookAt() {
+//    public Main.Vec3 getLookAt() {
 //        return this.player.getCamera().getLookAt();
 //    }
 

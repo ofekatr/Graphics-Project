@@ -1,4 +1,4 @@
-/* This file was created by: Ofek Atar*/
+package Main;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
@@ -115,7 +115,7 @@ public class Player {
         this.camera.setSideways(new Vec3(MathUtils.normalize(resX)));
         this.camera.setUp(new Vec3(MathUtils.normalize(resY)));
         this.camera.setLookAt(new Vec3(MathUtils.normalize(resZ)));
-//        System.out.println(Arrays.toString(this.camera.get(Axes.X)) + " " + Arrays.toString(this.camera.get(Axes.Y)) + " " + Arrays.toString(this.camera.get(Axes.Z)));
+//        System.out.println(Arrays.toString(this.camera.get(Main.Axes.X)) + " " + Arrays.toString(this.camera.get(Main.Axes.Y)) + " " + Arrays.toString(this.camera.get(Main.Axes.Z)));
     }
 
     public void fixCoordinates() {

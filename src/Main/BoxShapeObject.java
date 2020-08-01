@@ -1,14 +1,12 @@
-/* This file was created by: Ofek Atar*/
+package Main;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */
 
 import javax.media.opengl.GL2;
-import javax.swing.*;
-import java.util.List;
 
 public class BoxShapeObject extends Drawable {
-    //    BoxShapeObject(List<Vec3> points) {
+    //    Main.BoxShapeObject(List<Main.Vec3> points) {
 //        super(points);
 //    }
     BoxShapeObject() {

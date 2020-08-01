@@ -1,3 +1,5 @@
+package Main;
+
 import java.awt.*;
 import java.awt.image.MemoryImageSource;
 import java.io.File;
@@ -12,7 +14,6 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
-import javax.swing.*;
 
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;

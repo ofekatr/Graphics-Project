@@ -1,3 +1,5 @@
+package Examples;
+
 import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
