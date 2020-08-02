@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Player {
+    public static final float PLAYER_RADIUS = 10;
     private Camera camera;
     private final Map<Axes, Float> axisMovementSteps = new HashMap<>();
     private final Map<Axes, Float> axisRotationSteps = new HashMap<>();

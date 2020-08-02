@@ -11,9 +11,18 @@ import java.util.List;
 
 public abstract class Collidable {
     private List<Vec3> points;
+    private CollisionResolver cResolver;
+    private CollisionDetector cDetector;
+
+    public Collidable(List<Vec3> points, CollisionResolver cResolver, CollisionDetector cDetector) {
+        this.points = points;
+        this.cResolver = cResolver;
+        this.cDetector = cDetector;
+    }
 
     public Collidable(List<Vec3> points) {
         this.points = points;
+        this.cDetector = new AABBDetector();
     }
 
     public abstract boolean intersects(Collidable player);
@@ -49,40 +58,40 @@ public abstract class Collidable {
     }
 
 
-    public float getMinX() {
+    public Vec3 getMinX() {
         List<Float> xVals = this.getXVals();
         int minInd = MathUtils.argmin(xVals);
-        return this.points.get(minInd).getX();
+        return this.points.get(minInd);
     }
 
-    public float getMaxX() {
+    public Vec3 getMaxX() {
         List<Float> xVals = this.getXVals();
         int maxInd = MathUtils.argmax(xVals);
-        return this.points.get(maxInd).getX();
+        return this.points.get(maxInd);
     }
 
-    public float getMinY() {
+    public Vec3 getMinY() {
         List<Float> yVals = this.getYVals();
         int minInd = MathUtils.argmin(yVals);
-        return this.points.get(minInd).getY();
+        return this.points.get(minInd);
     }
 
-    public float getMaxY() {
+    public Vec3 getMaxY() {
         List<Float> yVals = this.getYVals();
         int maxInd = MathUtils.argmax(yVals);
-        return this.points.get(maxInd).getY();
+        return this.points.get(maxInd);
     }
 
-    public float getMinZ() {
+    public Vec3 getMinZ() {
         List<Float> zVals = this.getZVals();
         int minInd = MathUtils.argmin(zVals);
-        return this.points.get(minInd).getZ();
+        return this.points.get(minInd);
     }
 
-    public float getMaxZ() {
+    public Vec3 getMaxZ() {
         List<Float> zVals = this.getZVals();
         int maxInd = MathUtils.argmax(zVals);
-        return this.points.get(maxInd).getZ();
+        return this.points.get(maxInd);
     }
 
 }

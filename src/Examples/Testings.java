@@ -5,7 +5,7 @@ package Examples;/* This file was created by: Ofek Atar*/
 
 public class Testings {
     public static void main(String[] args) {
-//        CollisionDetector coll = new AABB();
+//        CollisionDetector coll = new AABBDetector();
 //        Collidable a = new PlayerObject(Arrays.asList(
 //                new Vec3(new float[]{0, 0, 0}),
 //                new Vec3(new float[]{8, 0, 0}),
