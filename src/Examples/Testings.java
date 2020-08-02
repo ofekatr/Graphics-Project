@@ -6,7 +6,7 @@ package Examples;/* This file was created by: Ofek Atar*/
 public class Testings {
     public static void main(String[] args) {
 //        CollisionDetector coll = new AABB();
-//        Drawable a = new PlayerObject(Arrays.asList(
+//        Collidable a = new PlayerObject(Arrays.asList(
 //                new Vec3(new float[]{0, 0, 0}),
 //                new Vec3(new float[]{8, 0, 0}),
 //                new Vec3(new float[]{8, 8, 0}),
@@ -16,7 +16,7 @@ public class Testings {
 //                new Vec3(new float[]{8, 0, 8}),
 //                new Vec3(new float[]{0, 0, 8})
 //        ));
-//        Drawable b = new PlayerObject(Arrays.asList(
+//        Collidable b = new PlayerObject(Arrays.asList(
 //                new Vec3(new float[]{2, 2, 2}),
 //                new Vec3(new float[]{4, 2, 2}),
 //                new Vec3(new float[]{4, 4, 2}),

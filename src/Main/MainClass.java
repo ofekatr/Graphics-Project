@@ -69,7 +69,6 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         glu.gluLookAt(camPos[0], camPos[1], camPos[2], camLookAt[0], camLookAt[1], camLookAt[2],
                 camUp[0], camUp[1], camUp[2]);
 
-
         // Light
         gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, position0, 0);
         gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_POSITION, position1, 0);
@@ -89,6 +88,7 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         BoxShapeObject b = new BoxShapeObject();
         b.draw(gl);
         gl.glPopMatrix();
+        new Crosshair().draw(gl);
 
 //        xrot += 0.03f;
 //        yrot += 0.05f;

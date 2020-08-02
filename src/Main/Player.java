@@ -48,8 +48,7 @@ public class Player {
     public void translatef(float x, float y, float z) {
         Vec3[] coords = {this.camera.getSideways(),
                 this.camera.getUp(),
-//                this.camera.getLookAt()};
-                new Vec3(new float[]{0, 0, -1})};
+                new Vec3(new float[]{this.camera.getLookAt().getX(), 0, this.camera.getLookAt().getZ()})};
         float[] axisSteps = {this.axisMovementSteps.get(Axes.X),
                 this.axisMovementSteps.get(Axes.Y),
                 this.axisMovementSteps.get(Axes.Z)};

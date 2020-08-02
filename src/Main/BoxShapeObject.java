@@ -3,14 +3,26 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import Collisions.Collidable;
+
 import javax.media.opengl.GL2;
 
-public class BoxShapeObject extends Drawable {
+public class BoxShapeObject extends Collidable {
     //    Main.BoxShapeObject(List<Main.Vec3> points) {
 //        super(points);
 //    }
     BoxShapeObject() {
         super(null);
+    }
+
+    @Override
+    public boolean intersects(Collidable player) {
+        return false;
+    }
+
+    @Override
+    public Vec3 resolveCollision(Vec3 oldPos) {
+        return null;
     }
 
     public void draw(GL2 gl) {
