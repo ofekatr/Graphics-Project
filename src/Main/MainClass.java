@@ -87,8 +87,10 @@ public class MainClass extends KeyAdapter implements GLEventListener {
 
         BoxShapeObject b = new BoxShapeObject();
         b.draw(gl);
-        gl.glPopMatrix();
+        gl.glDisable(GL2.GL_LIGHTING);
         new Crosshair().draw(gl);
+        gl.glEnable(GL2.GL_LIGHTING);
+        gl.glPopMatrix();
 
 //        xrot += 0.03f;
 //        yrot += 0.05f;

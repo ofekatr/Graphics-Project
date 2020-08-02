@@ -51,17 +51,18 @@ public class Crosshair implements Drawable {
     }
 
     private void drawCrosshair(GL2 gl) {
+        float offset = 0.075f;
         this.texture.enable(gl);
         this.texture.bind(gl);
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0.0f, 1.0f);
-        gl.glVertex3f(-0.1f, 0.1f, 0);
+        gl.glVertex3f(-offset , offset , 0);
         gl.glTexCoord2f(0.0f, 0.0f);
-        gl.glVertex3f(-0.1f, -0.1f, 0);
+        gl.glVertex3f(-offset , -offset , 0);
         gl.glTexCoord2f(1.0f, 0.0f);
-        gl.glVertex3f(0.1f, -0.1f, 0);
+        gl.glVertex3f(offset , -offset , 0);
         gl.glTexCoord2f(1.0f, 1.0f);
-        gl.glVertex3f(0.1f, 0.1f, 0);
+        gl.glVertex3f(offset , offset , 0);
         gl.glEnd();
     }
 }
