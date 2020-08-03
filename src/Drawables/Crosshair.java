@@ -63,4 +63,9 @@ public class Crosshair implements Drawable {
         gl.glVertex3f(offset , offset , 0);
         gl.glEnd();
     }
+
+    @Override
+    public void timePassed() {
+        // Nothing.
+    }
 }

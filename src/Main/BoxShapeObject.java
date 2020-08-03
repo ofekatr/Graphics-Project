@@ -83,4 +83,8 @@ public class BoxShapeObject extends Collidable implements Drawable {
         gl.glEnd();
     }
 
+    @Override
+    public void timePassed() {
+        // Nothing.
+    }
 }
