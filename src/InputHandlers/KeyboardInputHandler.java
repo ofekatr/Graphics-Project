@@ -53,7 +53,12 @@ public class KeyboardInputHandler extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent e) {
         char keyChar = e.getKeyChar();
-        this.pressed.add(keyChar);
+        if (Character.isAlphabetic(keyChar)) {
+            keyChar = Character.toLowerCase(keyChar);
+            System.out.println(keyChar);
+            this.pressed.add(keyChar);
+        }
+
         for (char ch : this.pressed) {
             Runnable r = this.map.get(ch);
             if (r != null)
@@ -73,6 +78,9 @@ public class KeyboardInputHandler extends KeyAdapter {
     @Override
     public void keyReleased(KeyEvent e) {
         char keyChar = e.getKeyChar();
-        this.pressed.remove(keyChar);
+        if (Character.isAlphabetic(keyChar)){
+            keyChar = Character.toLowerCase(keyChar);
+            this.pressed.remove(keyChar);
+        }
     }
 }

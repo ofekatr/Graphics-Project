@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Camera.java" afterPath="$PROJECT_DIR$/src/Main/Camera.java" />
+      <change beforePath="$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java" afterPath="$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java" />
       <change beforePath="$PROJECT_DIR$/src/Main/Player.java" afterPath="$PROJECT_DIR$/src/Main/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,33 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main/Player.java">
+      <file leaf-file-name="KeyboardInputHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="20" selection-end-column="39" />
+            <state relative-caret-position="511">
+              <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
               <folding>
-                <element signature="method#Player#1;class#Player#0" expanded="false" />
-                <element signature="method#getLookAt#0;class#Player#0" expanded="false" />
-                <element signature="e#1898#1899#0" expanded="true" />
-                <element signature="e#1927#1928#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initAxisStep#0;class#Camera#0" expanded="false" />
-                <element signature="method#initAxisRotationSteps#0;class#Camera#0" expanded="false" />
-                <element signature="method#clone#0;class#Camera#0" expanded="false" />
-                <element signature="method#calcSideways#0;class#Camera#0" expanded="false" />
-                <element signature="method#getLookAt#0;class#Camera#0" expanded="false" />
+                <element signature="e#1880#1881#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,15 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scale</find>
-      <find>loadidentity</find>
-      <find>ortho</find>
-      <find>obj</find>
-      <find>color</find>
-      <find>loadwave</find>
-      <find>rotate</find>
-      <find>main</find>
-      <find>mainclass()</find>
       <find>main(</find>
       <find>displa</find>
       <find>try</find>
@@ -93,6 +65,15 @@
       <find>public camera</find>
       <find>initaxisrotationsteps</find>
       <find>init</find>
+      <find>tra</find>
+      <find>PLAYER()</find>
+      <find>'w'</find>
+      <find>UP</find>
+      <find>pressed</find>
+      <find>this.lookat</find>
+      <find>getlookat</find>
+      <find>char()</find>
+      <find>releas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,8 +135,9 @@
         <option value="$PROJECT_DIR$/src/Collisions/Collidable.java" />
         <option value="$PROJECT_DIR$/src/Collisions/AABB.java" />
         <option value="$PROJECT_DIR$/src/Collisions/AABBDetector.java" />
-        <option value="$PROJECT_DIR$/src/Main/Camera.java" />
         <option value="$PROJECT_DIR$/src/Main/Player.java" />
+        <option value="$PROJECT_DIR$/src/Main/Camera.java" />
+        <option value="$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java" />
       </list>
     </option>
   </component>
@@ -199,7 +181,7 @@
               <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="InputHandlers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -501,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596399921296</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Moved camera movement logic from player to Camera class.">
+      <created>1596476166093</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1596476166093</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -587,7 +576,8 @@
     <MESSAGE value="Fixed backward and forward movement.&#10;Added experimental cross hair." />
     <MESSAGE value="Improved experimental cross hair" />
     <MESSAGE value="Added CollisionResolver interface.&#10;added CollisionResolver and Collision Detector to Collidable." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CollisionResolver interface.&#10;added CollisionResolver and Collision Detector to Collidable." />
+    <MESSAGE value="Moved camera movement logic from player to Camera class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved camera movement logic from player to Camera class." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,10 +621,10 @@
         <state relative-caret-position="1701">
           <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
+            <element signature="method#Player#0;class#Player#0" expanded="false" />
             <element signature="method#Player#1;class#Player#0" expanded="false" />
-            <element signature="method#getLookAt#0;class#Player#0" expanded="false" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -643,7 +633,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -659,10 +652,10 @@
         <state relative-caret-position="2352">
           <caret line="123" column="22" lean-forward="false" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
           <folding>
+            <element signature="method#Player#0;class#Player#0" expanded="false" />
             <element signature="method#Player#1;class#Player#0" expanded="false" />
-            <element signature="method#getLookAt#0;class#Player#0" expanded="false" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -708,10 +701,10 @@
         <state relative-caret-position="2352">
           <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
           <folding>
+            <element signature="method#Player#0;class#Player#0" expanded="false" />
             <element signature="method#Player#1;class#Player#0" expanded="false" />
-            <element signature="method#getLookAt#0;class#Player#0" expanded="false" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,7 +728,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -897,20 +893,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="45" column="59" lean-forward="false" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Collisions/AABBCollisionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="32" column="44" lean-forward="false" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -920,7 +908,7 @@
         <state relative-caret-position="150">
           <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -964,30 +952,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Camera.java">
+    <entry file="file://$PROJECT_DIR$/src/Main/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initAxisStep#0;class#Camera#0" expanded="false" />
-            <element signature="method#initAxisRotationSteps#0;class#Camera#0" expanded="false" />
-            <element signature="method#clone#0;class#Camera#0" expanded="false" />
-            <element signature="method#calcSideways#0;class#Camera#0" expanded="false" />
-            <element signature="method#getLookAt#0;class#Camera#0" expanded="false" />
+            <element signature="method#Player#0;class#Player#0" expanded="false" />
+            <element signature="method#Player#1;class#Player#0" expanded="false" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1368#1369#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/Main/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="20" selection-end-column="39" />
+        <state relative-caret-position="312">
+          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
           <folding>
-            <element signature="method#Player#1;class#Player#0" expanded="false" />
-            <element signature="method#getLookAt#0;class#Player#0" expanded="false" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Camera#0;class#Camera#0" expanded="false" />
+            <element signature="method#initAxisStep#0;class#Camera#0" expanded="false" />
+            <element signature="method#initAxisRotationSteps#0;class#Camera#0" expanded="false" />
+            <element signature="method#clone#0;class#Camera#0" expanded="false" />
+            <element signature="method#calcSideways#0;class#Camera#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding>
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
           </folding>
         </state>
       </provider>
