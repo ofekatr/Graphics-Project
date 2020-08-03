@@ -5,17 +5,26 @@ package Main;/* This file was created by: Ofek Atar*/
 
 import MathLib.MathUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Camera {
     private Vec3 pos;
     private Vec3 up;
     private Vec3 lookAt;
     private Vec3 sideways;
 
+    private final Map<Axes, Float> axisMovementSteps = new HashMap<>();
+    private final Map<Axes, Float> axisRotationSteps = new HashMap<>();
+
     public Camera(Vec3 pos, Vec3 up, Vec3 lookAt) {
         this.pos = pos;
         this.up = up;
         this.lookAt = lookAt;
         this.calcSideways();
+
+        this.initAxisStep();
+        this.initAxisRotationSteps();
     }
 
     public Camera(Vec3 pos, Vec3 up, Vec3 lookAt, Vec3 sideways) {
@@ -23,6 +32,21 @@ public class Camera {
         this.up = up;
         this.lookAt = lookAt;
         this.sideways = sideways;
+
+        this.initAxisStep();
+        this.initAxisRotationSteps();
+    }
+
+    private void initAxisStep() {
+        this.axisMovementSteps.put(Axes.X, 0.3f);
+        this.axisMovementSteps.put(Axes.Y, 0.3f);
+        this.axisMovementSteps.put(Axes.Z, 0.3f);
+    }
+
+    private void initAxisRotationSteps() {
+        this.axisRotationSteps.put(Axes.X, 2f);
+        this.axisRotationSteps.put(Axes.Y, 2f);
+        this.axisRotationSteps.put(Axes.Z, 2f);
     }
 
     public Camera clone() {
@@ -68,5 +92,70 @@ public class Camera {
 
     public Vec3 getSideways() {
         return sideways;
+    }
+
+    public void rotatef(float alpha, Axes axis) {
+        float[] x = this.getSideways().getArray(),
+                y = this.getUp().getArray(),
+                y0 = {0, 1, 0},
+                z = this.getLookAt().getArray(),
+                resX = x.clone(), resY = y.clone(), resZ = z.clone();
+        float[][] transMat;
+        alpha = (float) Math.toRadians(alpha);
+
+        switch (axis) {
+            case X:
+                alpha *= this.axisRotationSteps.get(Axes.X);
+                transMat = MathUtils.generateVectorRotationMatrix(x, alpha);
+                this.setUp(new Vec3(MathUtils.product(transMat, y0)));
+                this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
+//                resY = MathUtils.sumVectors(MathUtils.vectorScalarProduct(y, (float) Math.cos(alpha)),
+//                        MathUtils.vectorScalarProduct(z, (float) -Math.sin(alpha)));
+//                resZ = MathUtils.sumVectors(MathUtils.vectorScalarProduct(z, (float) Math.cos(alpha)),
+//                        MathUtils.vectorScalarProduct(y, (float) Math.sin(alpha)));
+                return;
+            case Y:
+                alpha *= this.axisRotationSteps.get(Axes.Y);
+                transMat = MathUtils.generateVectorRotationMatrix(y0, alpha);
+                this.setSideways(new Vec3(MathUtils.product(transMat, x)));
+                this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
+                return;
+
+//                resX = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.cos(alpha)),
+//                        MathUtils.vectorScalarProduct(z, (float) -Math.sin(alpha)));
+//                resZ = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.sin(alpha)),
+//                        MathUtils.vectorScalarProduct(z, (float) Math.cos(alpha)));
+            case Z:
+                alpha *= this.axisRotationSteps.get(Axes.Z);
+                transMat = MathUtils.generateVectorRotationMatrix(z, alpha);
+                this.setSideways(new Vec3(MathUtils.product(transMat, x)));
+                this.setUp(new Vec3(MathUtils.product(transMat, y0)));
+//                System.out.println(Arrays.toString(z));
+                return;
+
+//                resX = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.cos(alpha)),
+//                        MathUtils.vectorScalarProduct(y, (float) -Math.sin(alpha)));
+//                resY = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.sin(alpha)),
+//                        MathUtils.vectorScalarProduct(y, (float) Math.cos(alpha)));
+//                break;
+        }
+        this.setSideways(new Vec3(MathUtils.normalize(resX)));
+        this.setUp(new Vec3(MathUtils.normalize(resY)));
+        this.setLookAt(new Vec3(MathUtils.normalize(resZ)));
+//        System.out.println(Arrays.toString(this.camera.get(Main.Axes.X)) + " " + Arrays.toString(this.camera.get(Main.Axes.Y)) + " " + Arrays.toString(this.camera.get(Main.Axes.Z)));
+    }
+
+    public void translatef(float x, float y, float z) {
+        Vec3[] coords = {this.getSideways(),
+                this.getUp(),
+                new Vec3(new float[]{this.getLookAt().getX(), 0, this.getLookAt().getZ()})};
+        float[] axisSteps = {this.axisMovementSteps.get(Axes.X),
+                this.axisMovementSteps.get(Axes.Y),
+                this.axisMovementSteps.get(Axes.Z)};
+        float[] args = {x, y, z};
+        float[] res = {0f, 0f, 0f};
+        for (int i = 0; i < res.length; i++)
+            res = MathUtils.sumVectors(res, MathUtils.vectorScalarProduct(coords[i].getArray(), args[i] * axisSteps[i]));
+        this.setPos(new Vec3(MathUtils.sumVectors(this.getPos().getArray(), res)));
     }
 }
