@@ -12,53 +12,44 @@ import static java.lang.Float.max;
 
 public class AABBCollisionResolver implements CollisionResolver {
     @Override
-    public void resolve(Player player, Collidable c) {
-        Vec3 pos = player.getCamera().getPos(),
-                minX = c.getMinX(),
+    public void resolveCollision(Vec3 playerPos, Collidable c) {
+        Vec3 minX = c.getMinX(),
                 maxX = c.getMaxX(),
                 minZ = c.getMinZ(),
                 maxZ = c.getMaxZ();
-        float dWest = Math.abs(pos.getX() - minX.getX()),
-                dEast = Math.abs(pos.getX() - maxX.getX()),
-                dNorth = Math.abs(pos.getZ() - minZ.getZ()),
-                dSouth = Math.abs(pos.getZ() - maxZ.getZ());
+        float dWest = Math.abs(playerPos.getX() - minX.getX()),
+                dEast = Math.abs(playerPos.getX() - maxX.getX()),
+                dNorth = Math.abs(playerPos.getZ() - minZ.getZ()),
+                dSouth = Math.abs(playerPos.getZ() - maxZ.getZ());
         float dMin = Math.min(Math.min(dWest, dEast), Math.min(dNorth, dSouth));
         if (dMin == dWest)
-            this.resolveWest(player, minX);
+            this.resolveWest(playerPos, minX);
         if (dMin == dEast)
-            this.resolveEast(player, maxX);
+            this.resolveEast(playerPos, maxX);
         if (dMin == dNorth)
-            this.resolveNorth(player, minZ);
+            this.resolveNorth(playerPos, minZ);
         if (dMin == dSouth)
-            this.resolveSouth(player, maxZ);
+            this.resolveSouth(playerPos, maxZ);
         throw new RuntimeException("Reached an unexpected end of switch case in AABBCollisionResolver.");
     }
 
-    private void resolveWest(Player player, Vec3 point) {
+    private void resolveWest(Vec3 playerPos, Vec3 point) {
         float west = point.getX();
-        Camera playerCam = player.getCamera();
-        Vec3 pos = playerCam.getPos();
-        playerCam.setPos(new Vec3(new float[]{west - Player.PLAYER_RADIUS, pos.getY(), pos.getZ()}));
+        playerPos.setX(west - Player.PLAYER_RADIUS);
     }
 
-    private void resolveEast(Player player, Vec3 point) {
+    private void resolveEast(Vec3 playerPos, Vec3 point) {
         float east = point.getX();
-        Camera playerCam = player.getCamera();
-        Vec3 pos = playerCam.getPos();
-        playerCam.setPos(new Vec3(new float[]{east + Player.PLAYER_RADIUS, pos.getY(), pos.getZ()}));
+        playerPos.setX(east + Player.PLAYER_RADIUS);
     }
 
-    private void resolveNorth(Player player, Vec3 point) {
+    private void resolveNorth(Vec3 playerPos, Vec3 point) {
         float north = point.getZ();
-        Camera playerCam = player.getCamera();
-        Vec3 pos = playerCam.getPos();
-        playerCam.setPos(new Vec3(new float[]{pos.getX(), pos.getY(), north - Player.PLAYER_RADIUS}));
+        playerPos.setZ(north - Player.PLAYER_RADIUS);
     }
 
-    private void resolveSouth(Player player, Vec3 point) {
+    private void resolveSouth(Vec3 playerPos, Vec3 point) {
         float south = point.getZ();
-        Camera playerCam = player.getCamera();
-        Vec3 pos = playerCam.getPos();
-        playerCam.setPos(new Vec3(new float[]{pos.getX(), pos.getY(), south + Player.PLAYER_RADIUS}));
+        playerPos.setZ(south + Player.PLAYER_RADIUS);
     }
 }

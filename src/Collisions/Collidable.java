@@ -23,11 +23,23 @@ public abstract class Collidable {
     public Collidable(List<Vec3> points) {
         this.points = points;
         this.cDetector = new AABBDetector();
+        this.cResolver = new AABBCollisionResolver();
     }
 
-    public abstract boolean intersects(Collidable player);
+    public Collidable(Vec3 pos) {
+        this.points = new ArrayList<>();
+        this.points.add(pos);
+        this.cResolver = new AABBCollisionResolver();
+        this.cDetector = new AABBDetector();
+    }
 
-    public abstract Vec3 resolveCollision(Vec3 oldPos);
+    public boolean detectCollision(Collidable player) {
+        return this.cDetector.detectCollision(player, this);
+    }
+
+    public void resolveCollision(Vec3 playerPos) {
+        this.cResolver.resolveCollision(playerPos, this);
+    }
 
     public List<Vec3> getPoints() {
         return points;

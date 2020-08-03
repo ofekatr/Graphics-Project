@@ -27,6 +27,6 @@ public class Testings {
 //                new Vec3(new float[]{2, 2, 4})
 //        ));
 //
-//        System.out.println(coll.intersect(b, a));
+//        System.out.println(coll.detectCollision(b, a));
     }
 }

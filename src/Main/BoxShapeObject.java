@@ -4,27 +4,18 @@ package Main;/* This file was created by: Ofek Atar*/
 */
 
 import Collisions.Collidable;
+import Drawables.Drawable;
 
 import javax.media.opengl.GL2;
+import java.util.ArrayList;
 
-public class BoxShapeObject extends Collidable {
-    //    Main.BoxShapeObject(List<Main.Vec3> points) {
-//        super(points);
-//    }
+public class BoxShapeObject extends Collidable implements Drawable {
     BoxShapeObject() {
-        super(null);
+        super(new ArrayList<>());
     }
+
 
     @Override
-    public boolean intersects(Collidable player) {
-        return false;
-    }
-
-    @Override
-    public Vec3 resolveCollision(Vec3 oldPos) {
-        return null;
-    }
-
     public void draw(GL2 gl) {
         float material[] = {0.8f, 0.8f, 0.8f, 1.0f};
         gl.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE, material, 0);

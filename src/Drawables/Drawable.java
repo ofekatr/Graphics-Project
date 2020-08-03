@@ -1,4 +1,4 @@
-package Main;
+package Drawables;
 
 import Main.Vec3;
 

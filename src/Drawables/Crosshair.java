@@ -2,9 +2,8 @@
 /*
  Ofek Atar 209373802
 */
-package Main;
+package Drawables;
 
-import Collisions.Collidable;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
@@ -12,7 +11,6 @@ import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class Crosshair implements Drawable {
     private Texture texture;
