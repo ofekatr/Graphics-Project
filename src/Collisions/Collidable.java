@@ -4,16 +4,15 @@ package Collisions;/* This file was created by: Ofek Atar*/
 */
 
 import Main.Vec3;
-import MathLib.MathUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Collidable {
+    private static final CollisionResolver defColResolver = AABBCollisionResolver.getInstance();
+    private static final CollisionDetector defColDetector = AABBCollisionDetector.getInstance();
+
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
-    protected Vec3 minVals;
-    protected Vec3 maxVals;
+    protected final Vec3 minVals;
+    protected final Vec3 maxVals;
 
     public Collidable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
         this.cResolver = cResolver;
@@ -25,15 +24,15 @@ public abstract class Collidable {
     public Collidable(Vec3 minVals, Vec3 maxVals) {
         this.minVals = minVals;
         this.maxVals = maxVals;
-        this.cDetector = new AABBDetector();
-        this.cResolver = new AABBCollisionResolver();
+        this.cDetector = defColDetector;
+        this.cResolver = defColResolver;
     }
 
     public Collidable(Vec3 playerPos, float radius, float height) {
         this.maxVals = new Vec3(playerPos.getX() + radius, playerPos.getY(), playerPos.getZ() + radius);
         this.minVals = new Vec3(playerPos.getX() - radius, playerPos.getY() - height, playerPos.getZ() - radius);
-        this.cResolver = new AABBCollisionResolver();
-        this.cDetector = new AABBDetector();
+        this.cResolver = defColResolver;
+        this.cDetector = defColDetector;
     }
 
     public boolean detectCollision(Collidable player) {

@@ -11,6 +11,19 @@ import Main.Vec3;
 import static java.lang.Float.max;
 
 public class AABBCollisionResolver implements CollisionResolver {
+
+    private static AABBCollisionResolver instance;
+
+    private AABBCollisionResolver() {
+    }
+
+    public static AABBCollisionResolver getInstance() {
+        if (instance == null) {
+            instance = new AABBCollisionResolver();
+        }
+        return instance;
+    }
+
     @Override
     public void resolveCollision(Vec3 playerPos, Collidable c) {
 

@@ -30,15 +30,6 @@ public class Game extends KeyAdapter implements GLEventListener {
     public static final int height = 720;
     private final CameraInputAdapter inputHandler;
 
-//    private float xrot = 0;
-//    private float yrot = 0;
-//    private float zrot = 0;
-//    private float xpos = 0;
-//    private float ypos = 0;
-//    private float zpos = 0;
-//    private final float step = 0.3f;
-//    private final float rotStep = 2f;
-
     private Texture texture;
     private CollidableDrawable gun;
 
@@ -53,16 +44,12 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
     public void display(GLAutoDrawable drawable) {
-        float material[] = {0.8f, 0.8f, 0.8f, 1.0f};
-        float position0[] = {10f, 0f, -30f, 1.0f};        // red light on the right side (light 0)
-        float position1[] = {-10f, 0f, -5f, 1.0f};    // blue light on the left side (light 1)
-
         final GL2 gl = drawable.getGL().getGL2();
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
-        float[] camPos = this.inputHandler.getCamera().getPos().getArray();
-        float[] camLookAt = this.inputHandler.getLookAt().getArray();
-        float[] camUp = this.inputHandler.getCamera().getUp().getArray();
+        float[] camPos = this.inputHandler.getCamera().getPos().getArray(),
+                camLookAt = this.inputHandler.getLookAt().getArray(),
+                camUp = this.inputHandler.getCamera().getUp().getArray();
         glu.gluLookAt(camPos[0], camPos[1], camPos[2], camLookAt[0], camLookAt[1], camLookAt[2],
                 camUp[0], camUp[1], camUp[2]);
 
@@ -76,7 +63,7 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
 
-    public void setInvisibleCursor() {
+    private void setInvisibleCursor() {
         int[] pixels = new int[16 * 16];
         Image image = Toolkit.getDefaultToolkit().createImage(
                 new MemoryImageSource(16, 16, pixels, 0, 16));
@@ -133,49 +120,9 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        char keyCh = Character.toLowerCase(e.getKeyChar());
-        switch (keyCh) {
-//            Movement
-//            case 'w':
-//                this.inputHandler.translatef(0f, 0f, 1);
-//                break;
-//            case 's':
-//                this.inputHandler.translatef(0f, 0f, -1f);
-//                break;
-//            case 'd':
-//                this.inputHandler.translatef(1f, 0f, 0f);
-//                break;
-//            case 'a':
-//                this.inputHandler.translatef(-1f, 0f, 0f);
-//                break;
-            case 'e':
-                this.inputHandler.translatef(0f, 1f, 0f);
-                break;
-            case 'q':
-                this.inputHandler.translatef(0f, -1f, 0f);
-                break;
-//                Angle
-            case 'i':
-                this.inputHandler.rotatef(1, Axes.X);
-                break;
-            case 'k':
-                this.inputHandler.rotatef(-1, Axes.X);
-                break;
-            case 'l':
-                this.inputHandler.rotatef(1, Axes.Y);
-                break;
-            case 'j':
-                this.inputHandler.rotatef(-1, Axes.Y);
-                break;
-            case 'o':
-                this.inputHandler.rotatef(1, Axes.Z);
-                break;
-            case 'u':
-                this.inputHandler.rotatef(-1, Axes.Z);
-                break;
-            case KeyEvent.VK_ESCAPE:
-                exit();
-        }
+        char keyCh = e.getKeyChar();
+        if (keyCh == KeyEvent.VK_ESCAPE)
+            exit();
     }
 
     public void keyReleased(KeyEvent e) {
