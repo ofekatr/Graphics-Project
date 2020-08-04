@@ -33,7 +33,7 @@ public class Crosshair implements Drawable {
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glPushMatrix();
         gl.glLoadIdentity();
-//        gl.glOrthof(0f, MainClass.width, MainClass.height, 0, 0, 100);
+//        gl.glOrthof(0f, Game.width, Game.height, 0, 0, 100);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glPushMatrix();
         gl.glLoadIdentity();

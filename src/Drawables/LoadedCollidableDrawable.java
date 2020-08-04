@@ -11,19 +11,23 @@ import Main.Vec3;
 
 import javax.media.opengl.GL2;
 
-public class CollidableDrawable extends Collidable implements Drawable {
+public class LoadedCollidableDrawable extends CollidableDrawable {
 
-    public CollidableDrawable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
+    protected int id;
+
+    public LoadedCollidableDrawable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals, int id) {
         super(cResolver, cDetector, minVals, maxVals);
+        this.id = id;
     }
 
-    public CollidableDrawable(Vec3 minVals, Vec3 maxVals) {
+    public LoadedCollidableDrawable(Vec3 minVals, Vec3 maxVals, int id) {
         super(minVals, maxVals);
+        this.id = id;
     }
 
     @Override
     public void draw(GL2 gl) {
-        // Nothing.
+        gl.glCallList(this.id);
     }
 
     @Override

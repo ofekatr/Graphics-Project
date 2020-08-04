@@ -4,7 +4,7 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
 */
 
 import Main.Axes;
-import Main.MainClass;
+import Main.Game;
 import Main.Player;
 
 import java.awt.*;
@@ -19,8 +19,8 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     public MouseInputHandler(Player camera) {
         this.camera = camera;
-        this.midX = MainClass.width / 2;
-        this.midY = MainClass.height / 2;
+        this.midX = Game.width / 2;
+        this.midY = Game.height / 2;
         this.ignore = false;
         this.prev = MouseInfo.getPointerInfo().getLocation();
     }
@@ -47,9 +47,9 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 //            int x = e.getX(), y = e.getY();
             float xDiff = Math.abs(this.midX - x), yDiff = Math.abs(this.midY - y);
 //            System.out.println(xDiff + " " + yDiff);
-            float angX = this.calcAngle(this.midX, x, MainClass.width);
+            float angX = this.calcAngle(this.midX, x, Game.width);
             this.camera.rotatef(angX, Axes.Y);
-            float angY = this.calcAngle(this.midY, y, MainClass.height);
+            float angY = this.calcAngle(this.midY, y, Game.height);
             this.camera.rotatef(angY, Axes.X);
             this.prev = e.getPoint();
             this.centerMouse();

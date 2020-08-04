@@ -13,7 +13,7 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 
-import Drawables.Crosshair;
+import Drawables.CollidableDrawable;
 import InputHandlers.CameraInputAdapter;
 import ObjectLoading.WavefrontObjectLoader_DisplayList;
 import com.jogamp.newt.Window;
@@ -25,7 +25,7 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 
 
-public class MainClass extends KeyAdapter implements GLEventListener {
+public class Game extends KeyAdapter implements GLEventListener {
     public static final int width = 1280;
     public static final int height = 720;
     private final CameraInputAdapter inputHandler;
@@ -40,14 +40,14 @@ public class MainClass extends KeyAdapter implements GLEventListener {
 //    private final float rotStep = 2f;
 
     private Texture texture;
-    private int gunID;
+    private CollidableDrawable gun;
 
     static GLU glu = new GLU();
     static GLCanvas canvas = new GLCanvas();
     static Frame frame = new Frame("Jogl 3D Shape/Rotation");
     static Animator animator = new Animator(canvas);
 
-    public MainClass() {
+    public Game() {
         this.inputHandler = new CameraInputAdapter();
 //        this.initSchedueler();
     }
@@ -68,12 +68,7 @@ public class MainClass extends KeyAdapter implements GLEventListener {
 
         gl.glTranslatef(-0.33097804f, 0.8000004f, -2.705684f);
 
-        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
-        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
-        texture.bind(gl);
-
-//        gl.glScalef(100, 100, 100);
-        gl.glCallList(this.gunID);
+        this.gun.draw(gl);
     }
 
     public void displayChanged(GLAutoDrawable drawable,
@@ -106,17 +101,11 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         // Really Nice Perspective Calculations
         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST);
         gl.glEnable(GL2.GL_TEXTURE_2D);
-        try {
-            String filename = "resources/textures/portalgun_col.jpg"; // the FileName to open
-            texture = TextureIO.newTexture(new File(filename), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        this.gunID = WavefrontObjectLoader_DisplayList.loadWavefrontObjectAsDisplayList(gl, "resources/Portal Gun.obj");
+        this.gun = WavefrontObjectLoader_DisplayList.loadWavefrontObjectAsDisplayList(gl,
+                "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg");
 
         // Keyboard
         if (gLDrawable instanceof Window) {
@@ -202,7 +191,7 @@ public class MainClass extends KeyAdapter implements GLEventListener {
     }
 
     public static void main(String[] args) {
-        canvas.addGLEventListener(new MainClass());
+        canvas.addGLEventListener(new Game());
         frame.add(canvas);
         frame.setSize(width, height);
 //		frame.setUndecorated(true);

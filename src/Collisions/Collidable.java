@@ -12,8 +12,8 @@ import java.util.List;
 public abstract class Collidable {
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
-    private Vec3 minVals;
-    private Vec3 maxVals;
+    protected Vec3 minVals;
+    protected Vec3 maxVals;
 
     public Collidable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
         this.cResolver = cResolver;
