@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BoxShapeObject extends Collidable implements Drawable {
     BoxShapeObject() {
-        super(new ArrayList<>());
+        super(new Vec3(-1, -1, -1), new Vec3(1, 1, 1));
     }
 
 

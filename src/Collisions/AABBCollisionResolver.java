@@ -13,14 +13,17 @@ import static java.lang.Float.max;
 public class AABBCollisionResolver implements CollisionResolver {
     @Override
     public void resolveCollision(Vec3 playerPos, Collidable c) {
-        Vec3 minX = c.getMinX(),
-                maxX = c.getMaxX(),
-                minZ = c.getMinZ(),
-                maxZ = c.getMaxZ();
-        float dWest = Math.abs(playerPos.getX() - minX.getX()),
-                dEast = Math.abs(playerPos.getX() - maxX.getX()),
-                dNorth = Math.abs(playerPos.getZ() - minZ.getZ()),
-                dSouth = Math.abs(playerPos.getZ() - maxZ.getZ());
+
+        Vec3 colMinVals = c.getMinVals(), colMaxVals = c.getMaxVals();
+
+        float minX = colMinVals.getX(),
+                maxX = colMaxVals.getX(),
+                minZ = colMinVals.getZ(),
+                maxZ = colMaxVals.getZ();
+        float dWest = Math.abs(playerPos.getX() - minX),
+                dEast = Math.abs(playerPos.getX() - maxX),
+                dNorth = Math.abs(playerPos.getZ() - minZ),
+                dSouth = Math.abs(playerPos.getZ() - maxZ);
         float dMin = Math.min(Math.min(dWest, dEast), Math.min(dNorth, dSouth));
         if (dMin == dWest)
             this.resolveWest(playerPos, minX);
@@ -33,23 +36,19 @@ public class AABBCollisionResolver implements CollisionResolver {
         throw new RuntimeException("Reached an unexpected end of switch case in AABBCollisionResolver.");
     }
 
-    private void resolveWest(Vec3 playerPos, Vec3 point) {
-        float west = point.getX();
+    private void resolveWest(Vec3 playerPos, float west) {
         playerPos.setX(west - Player.PLAYER_RADIUS);
     }
 
-    private void resolveEast(Vec3 playerPos, Vec3 point) {
-        float east = point.getX();
+    private void resolveEast(Vec3 playerPos, float east) {
         playerPos.setX(east + Player.PLAYER_RADIUS);
     }
 
-    private void resolveNorth(Vec3 playerPos, Vec3 point) {
-        float north = point.getZ();
+    private void resolveNorth(Vec3 playerPos, float north) {
         playerPos.setZ(north - Player.PLAYER_RADIUS);
     }
 
-    private void resolveSouth(Vec3 playerPos, Vec3 point) {
-        float south = point.getZ();
+    private void resolveSouth(Vec3 playerPos, float south) {
         playerPos.setZ(south + Player.PLAYER_RADIUS);
     }
 }

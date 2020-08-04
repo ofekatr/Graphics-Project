@@ -52,6 +52,7 @@ public class Crosshair implements Drawable {
         float offset = 0.075f;
         this.texture.enable(gl);
         this.texture.bind(gl);
+        gl.glColor3f(1.0f, 1.0f, 1.0f);
         gl.glBegin(GL2.GL_QUADS);
         gl.glTexCoord2f(0.0f, 1.0f);
         gl.glVertex3f(-offset , offset , 0);

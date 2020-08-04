@@ -10,25 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Collidable {
-    private List<Vec3> points;
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
+    private Vec3 minVals;
+    private Vec3 maxVals;
 
-    public Collidable(List<Vec3> points, CollisionResolver cResolver, CollisionDetector cDetector) {
-        this.points = points;
+    public Collidable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
         this.cResolver = cResolver;
         this.cDetector = cDetector;
+        this.minVals = minVals;
+        this.maxVals = maxVals;
     }
 
-    public Collidable(List<Vec3> points) {
-        this.points = points;
+    public Collidable(Vec3 minVals, Vec3 maxVals) {
+        this.minVals = minVals;
+        this.maxVals = maxVals;
         this.cDetector = new AABBDetector();
         this.cResolver = new AABBCollisionResolver();
     }
 
-    public Collidable(Vec3 pos) {
-        this.points = new ArrayList<>();
-        this.points.add(pos);
+    public Collidable(Vec3 playerPos, float radius, float height) {
+        this.maxVals = new Vec3(playerPos.getX() + radius, playerPos.getY(), playerPos.getZ() + radius);
+        this.minVals = new Vec3(playerPos.getX() - radius, playerPos.getY() - height, playerPos.getZ() - radius);
         this.cResolver = new AABBCollisionResolver();
         this.cDetector = new AABBDetector();
     }
@@ -41,69 +44,11 @@ public abstract class Collidable {
         this.cResolver.resolveCollision(playerPos, this);
     }
 
-    public List<Vec3> getPoints() {
-        return points;
+    public Vec3 getMinVals() {
+        return minVals;
     }
 
-    public List<Float> getXVals() {
-        List<Float> xVals = new ArrayList<>();
-        for (Vec3 point : this.points) {
-            xVals.add(point.getX());
-        }
-        return xVals;
+    public Vec3 getMaxVals() {
+        return maxVals;
     }
-
-    public List<Float> getYVals() {
-        List<Float> yVals = new ArrayList<>();
-        for (Vec3 point : this.points) {
-            yVals.add(point.getY());
-        }
-        return yVals;
-    }
-
-    public List<Float> getZVals() {
-        List<Float> zVals = new ArrayList<>();
-        for (Vec3 point : this.points) {
-            zVals.add(point.getZ());
-        }
-        return zVals;
-    }
-
-
-    public Vec3 getMinX() {
-        List<Float> xVals = this.getXVals();
-        int minInd = MathUtils.argmin(xVals);
-        return this.points.get(minInd);
-    }
-
-    public Vec3 getMaxX() {
-        List<Float> xVals = this.getXVals();
-        int maxInd = MathUtils.argmax(xVals);
-        return this.points.get(maxInd);
-    }
-
-    public Vec3 getMinY() {
-        List<Float> yVals = this.getYVals();
-        int minInd = MathUtils.argmin(yVals);
-        return this.points.get(minInd);
-    }
-
-    public Vec3 getMaxY() {
-        List<Float> yVals = this.getYVals();
-        int maxInd = MathUtils.argmax(yVals);
-        return this.points.get(maxInd);
-    }
-
-    public Vec3 getMinZ() {
-        List<Float> zVals = this.getZVals();
-        int minInd = MathUtils.argmin(zVals);
-        return this.points.get(minInd);
-    }
-
-    public Vec3 getMaxZ() {
-        List<Float> zVals = this.getZVals();
-        int maxInd = MathUtils.argmax(zVals);
-        return this.points.get(maxInd);
-    }
-
 }

@@ -55,7 +55,6 @@ public class KeyboardInputHandler extends KeyAdapter {
         char keyChar = e.getKeyChar();
         if (Character.isAlphabetic(keyChar)) {
             keyChar = Character.toLowerCase(keyChar);
-            System.out.println(keyChar);
             this.pressed.add(keyChar);
         }
 
@@ -64,6 +63,8 @@ public class KeyboardInputHandler extends KeyAdapter {
             if (r != null)
                 r.run();
         }
+
+        System.out.println(this.player.getCamera().getPos().toString());
     }
 
     protected void addKeyHandler(char ch, Runnable f) {
@@ -78,7 +79,7 @@ public class KeyboardInputHandler extends KeyAdapter {
     @Override
     public void keyReleased(KeyEvent e) {
         char keyChar = e.getKeyChar();
-        if (Character.isAlphabetic(keyChar)){
+        if (Character.isAlphabetic(keyChar)) {
             keyChar = Character.toLowerCase(keyChar);
             this.pressed.remove(keyChar);
         }

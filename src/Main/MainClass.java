@@ -15,6 +15,7 @@ import javax.media.opengl.glu.GLU;
 
 import Drawables.Crosshair;
 import InputHandlers.CameraInputAdapter;
+import ObjectLoading.WavefrontObjectLoader_DisplayList;
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
 import com.jogamp.newt.event.KeyEvent;
@@ -39,6 +40,7 @@ public class MainClass extends KeyAdapter implements GLEventListener {
 //    private final float rotStep = 2f;
 
     private Texture texture;
+    private int gunID;
 
     static GLU glu = new GLU();
     static GLCanvas canvas = new GLCanvas();
@@ -58,44 +60,20 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         final GL2 gl = drawable.getGL().getGL2();
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
-//        gl.glRotatef(this.xrot, 1f, 0f, 0f);
-//        gl.glRotatef(this.yrot, 0f, 1f, 0f);
-//        gl.glRotatef(this.zrot, 0f, 0f, 1f);
-//        gl.glTranslatef(this.xpos, this.ypos, this.zpos);
-//        glu.gluLookAt(this.xpos, this.ypos, this.zpos, 0, 0, -1, 0, 1, 0);
         float[] camPos = this.inputHandler.getCamera().getPos().getArray();
         float[] camLookAt = this.inputHandler.getLookAt().getArray();
         float[] camUp = this.inputHandler.getCamera().getUp().getArray();
-//        System.out.println(camPos[0] + " " + camPos[1] + " " + camPos[2]);
         glu.gluLookAt(camPos[0], camPos[1], camPos[2], camLookAt[0], camLookAt[1], camLookAt[2],
                 camUp[0], camUp[1], camUp[2]);
 
-        // Light
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, position0, 0);
-        gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_POSITION, position1, 0);
+        gl.glTranslatef(-0.33097804f, 0.8000004f, -2.705684f);
 
-        gl.glPushMatrix();
-        gl.glTranslatef(0.0f, 0.0f, -5.0f);
-//
-//        gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f);
-//        gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-//        gl.glRotatef(zrot, 0.0f, 0.0f, 1.0f);
-
-        gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_T, GL.GL_REPEAT);
-        gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_S, GL.GL_REPEAT);
-//        gl.glTexParameteri( GL.GL_TEXTURE_2D,GL.GL_TEXTURE_WRAP_S, GL.GL_CLAMP );
+        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
+        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
         texture.bind(gl);
 
-        BoxShapeObject b = new BoxShapeObject();
-        b.draw(gl);
-        gl.glDisable(GL2.GL_LIGHTING);
-        new Crosshair().draw(gl);
-        gl.glEnable(GL2.GL_LIGHTING);
-        gl.glPopMatrix();
-
-//        xrot += 0.03f;
-//        yrot += 0.05f;
-        //zrot += 0.04f;
+//        gl.glScalef(100, 100, 100);
+        gl.glCallList(this.gunID);
     }
 
     public void displayChanged(GLAutoDrawable drawable,
@@ -113,13 +91,13 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         canvas.setCursor(transparentCursor);
     }
 
-    public void init(GLAutoDrawable drawable) {
+    public void init(GLAutoDrawable gLDrawable) {
         this.setInvisibleCursor();
         this.inputHandler.addKeyHandler((char) KeyEvent.VK_ESCAPE, () -> exit());
         canvas.addKeyListener(this.inputHandler);
         canvas.addMouseMotionListener(this.inputHandler);
         canvas.addMouseListener(this.inputHandler);
-        final GL2 gl = drawable.getGL().getGL2();
+        final GL2 gl = gLDrawable.getGL().getGL2();
         gl.glShadeModel(GL2.GL_SMOOTH);              // Enable Smooth Shading
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);    // Black Background
         gl.glClearDepth(1.0f);                      // Depth Buffer Setup
@@ -127,11 +105,9 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         gl.glDepthFunc(GL2.GL_LEQUAL);               // The Type Of Depth Testing To Do
         // Really Nice Perspective Calculations
         gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST);
-
-        // Texture
-        gl.glEnable(GL.GL_TEXTURE_2D);
+        gl.glEnable(GL2.GL_TEXTURE_2D);
         try {
-            String filename = "resources/Picture1.jpg"; // the FileName to open
+            String filename = "resources/textures/portalgun_col.jpg"; // the FileName to open
             texture = TextureIO.newTexture(new File(filename), true);
         } catch (IOException e) {
             e.printStackTrace();
@@ -140,31 +116,15 @@ public class MainClass extends KeyAdapter implements GLEventListener {
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        // Light
-        float ambient[] = {0.1f, 0.1f, 0.1f, 1.0f};
-        float diffuse0[] = {1f, 0f, 0f, 1.0f};
-        float diffuse1[] = {0f, 0f, 1f, 1.0f};
-
-
-        gl.glShadeModel(GL2.GL_SMOOTH);
-
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 0);
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse0, 0);
-        gl.glEnable(GL2.GL_LIGHT0);
-
-        gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, ambient, 0);
-        gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_DIFFUSE, diffuse1, 0);
-        gl.glEnable(GL2.GL_LIGHT1);
-
-        gl.glEnable(GL2.GL_LIGHTING);
+        this.gunID = WavefrontObjectLoader_DisplayList.loadWavefrontObjectAsDisplayList(gl, "resources/Portal Gun.obj");
 
         // Keyboard
-        if (drawable instanceof Window) {
-            Window window = (Window) drawable;
+        if (gLDrawable instanceof Window) {
+            Window window = (Window) gLDrawable;
             window.addKeyListener(this);
-        } else if (GLProfile.isAWTAvailable() && drawable instanceof java.awt.Component) {
-            java.awt.Component comp = (java.awt.Component) drawable;
-            new AWTKeyAdapter(this, drawable).addTo(comp);
+        } else if (GLProfile.isAWTAvailable() && gLDrawable instanceof java.awt.Component) {
+            java.awt.Component comp = (java.awt.Component) gLDrawable;
+            new AWTKeyAdapter(this, gLDrawable).addTo(comp);
         }
     }
 

@@ -57,4 +57,8 @@ public class Vec3 {
     public float getZ() {
         return vals.get(Axes.Z);
     }
+
+    public String toString() {
+        return "{ " + this.getX() + ", " + this.getY() + ", " + this.getZ() + "}";
+    }
 }

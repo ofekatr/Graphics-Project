@@ -20,13 +20,13 @@ public class Player extends Collidable {
 
 
     public Player(Vec3 pos, Vec3 up, Vec3 lookAt, Vec3 sideways) {
-        super(pos);
+        super(pos, PLAYER_RADIUS, PLAYER_HEIGHT);
         this.camera = new Camera(pos, up, lookAt, sideways);
         this.collisionManager = new CollisionManager(this);
     }
 
     public Player() {
-        super(new Vec3(defPos.clone()));
+        super(new Vec3(defPos.clone()), PLAYER_RADIUS, PLAYER_HEIGHT);
         this.camera = new Camera(new Vec3(defPos.clone()),
                 new Vec3(defUp.clone()),
                 new Vec3(defLookAt.clone()),
@@ -57,4 +57,6 @@ public class Player extends Collidable {
     public Camera getCamera() {
         return camera;
     }
+
+
 }
