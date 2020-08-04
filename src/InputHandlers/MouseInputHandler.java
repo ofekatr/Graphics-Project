@@ -13,24 +13,16 @@ import java.awt.event.*;
 public class MouseInputHandler implements MouseMotionListener, MouseListener {
     private Player camera;
     private Point prev;
-    private int midX;
-    private int midY;
     private boolean ignore;
 
     public MouseInputHandler(Player camera) {
         this.camera = camera;
-        this.midX = Game.width / 2;
-        this.midY = Game.height / 2;
         this.ignore = false;
         this.prev = MouseInfo.getPointerInfo().getLocation();
     }
 
-    public MouseInputHandler(Player camera, int midX, int midY) {
-        this.camera = camera;
-        this.midX = midX;
-        this.midY = midY;
-        this.ignore = false;
-        this.prev = MouseInfo.getPointerInfo().getLocation();
+    private Point calcMidPoint() {
+        return new Point(Game.width / 2, Game.height / 2);
     }
 
     @Override
@@ -40,16 +32,18 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        Point midPoint = this.calcMidPoint();
+        int midX = midPoint.x, midY = midPoint.y;
         if (!this.ignore) {
 //            10 38
 //            8 32
             int x = e.getX() + 10, y = e.getY() + 38;
 //            int x = e.getX(), y = e.getY();
-            float xDiff = Math.abs(this.midX - x), yDiff = Math.abs(this.midY - y);
+            float xDiff = Math.abs(midX - x), yDiff = Math.abs(midY - y);
 //            System.out.println(xDiff + " " + yDiff);
-            float angX = this.calcAngle(this.midX, x, Game.width);
+            float angX = this.calcAngle(midX, x, Game.width);
             this.camera.rotatef(angX, Axes.Y);
-            float angY = this.calcAngle(this.midY, y, Game.height);
+            float angY = this.calcAngle(midY, y, Game.height);
             this.camera.rotatef(angY, Axes.X);
             this.prev = e.getPoint();
             this.centerMouse();
@@ -61,14 +55,14 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
     private float calcAngle(int prev, int curr, int range) {
 //        float angle = (float) ((curr - prev) / range) * 180;
         float angle = curr - prev;
-        return - angle * 0.04f;
+        return -angle * 0.04f;
     }
 
     private void centerMouse() {
         try {
             // These coordinates are screen coordinates
-            int xCoord = this.midX;
-            int yCoord = this.midY;
+            Point midPoint = this.calcMidPoint();
+            int xCoord = midPoint.x, yCoord = midPoint.y;
 
             // Move the cursor
             Robot robot = new Robot();

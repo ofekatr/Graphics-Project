@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.MemoryImageSource;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -26,8 +27,8 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 
 public class Game extends KeyAdapter implements GLEventListener {
-    public static final int width = 1280;
-    public static final int height = 720;
+    public static int width = 1280;
+    public static int height = 720;
     private final CameraInputAdapter inputHandler;
 
     private Texture texture;
@@ -106,12 +107,14 @@ public class Game extends KeyAdapter implements GLEventListener {
 
 
     public void reshape(GLAutoDrawable drawable, int x,
-                        int y, int width, int height) {
+                        int y, int width1, int height1) {
+        height = height1;
+        width = width1;
         GL2 gl = drawable.getGL().getGL2();
-        if (height <= 0) {
-            height = 1;
+        if (height1 <= 0) {
+            height1 = 1;
         }
-        float h = (float) width / (float) height;
+        float h = (float) width1 / (float) height1;
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
         glu.gluPerspective(50.0f, h, 1.0, 1000.0);
