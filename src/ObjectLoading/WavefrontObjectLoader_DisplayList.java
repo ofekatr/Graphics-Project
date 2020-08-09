@@ -322,7 +322,7 @@ public class WavefrontObjectLoader_DisplayList {
                 minVals.setZ(point[2]);
         }
 
-        return new TexturedLoadedCollidableDrawable(txtrFileName, minVals, maxVals, id);
+        return new TexturedLoadedCollidableDrawable(minVals, maxVals, id, txtrFileName);
     }
 
     public static Drawable loadTexturedObject(GL2 inGL, String inFileName, String txtrFileName) {

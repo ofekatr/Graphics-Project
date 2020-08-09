@@ -15,32 +15,33 @@ import java.io.File;
 import java.io.IOException;
 
 public class TexturedLoadedCollidableDrawable extends LoadedCollidableDrawable {
-    private Texture texture;
+    private TexturedDrawable textured;
 
-    public TexturedLoadedCollidableDrawable(String texturePath, CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals, int id) {
+    public TexturedLoadedCollidableDrawable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals,
+                                            Vec3 maxVals, int id, TexturedDrawable textured) {
         super(cResolver, cDetector, minVals, maxVals, id);
-        try {
-            this.texture = TextureIO.newTexture(new File(texturePath), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
+        this.textured = textured;
     }
 
-    public TexturedLoadedCollidableDrawable(String texturePath, Vec3 minVals, Vec3 maxVals, int id) {
+    public TexturedLoadedCollidableDrawable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals,
+                                            Vec3 maxVals, int id, String txtrPath) {
+        super(cResolver, cDetector, minVals, maxVals, id);
+        this.textured = new TexturedDrawable(txtrPath);
+    }
+
+    public TexturedLoadedCollidableDrawable(Vec3 minVals, Vec3 maxVals, int id, TexturedDrawable textured) {
         super(minVals, maxVals, id);
-        try {
-            this.texture = TextureIO.newTexture(new File(texturePath), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
+        this.textured = textured;
+    }
+
+    public TexturedLoadedCollidableDrawable(Vec3 minVals, Vec3 maxVals, int id, String txtrPath) {
+        super(minVals, maxVals, id);
+        this.textured = new TexturedDrawable(txtrPath);
     }
 
     @Override
     public void draw(GL2 gl) {
-        this.texture.enable(gl);
-        this.texture.bind(gl);
+        this.textured.draw(gl);
         gl.glCallList(super.id);
     }
 
