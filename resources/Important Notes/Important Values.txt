@@ -1,0 +1,2 @@
+Portal gun translation
+-0.33097804f, 0.8000004f, -2.705684f

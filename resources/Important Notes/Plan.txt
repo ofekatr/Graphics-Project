@@ -1,0 +1,11 @@
+Collidable - abstract class. //
+Drawable - interface. //
+TexturedDrawable - class, implements Drawable.	//
+LoadedDrawable - class, implements Drawable.	//
+TexturedLoadedDrawable - class, extends TexturedDrawable,holds LoadedDrawable.	//
+
+CollidableDrawable - class, extends Collidable, implements Drawable.	//
+LoadedCollidableDrawable - class, extends CollidableDrawable, holds LoadedDrawable. //
+TexturedCollidableDrawable - class, extends CollidableDrawable, holds TexturedDrawable. //
+TexturedLoadedCollidableDrawable - class, extends TexturedCollidableDrawable, holds
+LoadedCollidable.

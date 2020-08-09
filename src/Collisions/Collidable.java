@@ -11,8 +11,8 @@ public abstract class Collidable {
 
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
-    protected final Vec3 minVals;
-    protected final Vec3 maxVals;
+    private final Vec3 minVals;
+    private final Vec3 maxVals;
 
     public Collidable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
         this.cResolver = cResolver;
