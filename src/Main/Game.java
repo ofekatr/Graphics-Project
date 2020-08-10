@@ -2,9 +2,6 @@ package Main;
 
 import java.awt.*;
 import java.awt.image.MemoryImageSource;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -14,7 +11,7 @@ import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 
-import Drawables.CollidableDrawable;
+import CollidableDrawables.CollidableDrawable;
 import InputHandlers.CameraInputAdapter;
 import ObjectLoading.WavefrontObjectLoader_DisplayList;
 import com.jogamp.newt.Window;
@@ -23,7 +20,6 @@ import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.awt.AWTKeyAdapter;
 import com.jogamp.opengl.util.Animator;
 import com.jogamp.opengl.util.texture.Texture;
-import com.jogamp.opengl.util.texture.TextureIO;
 
 
 public class Game extends KeyAdapter implements GLEventListener {

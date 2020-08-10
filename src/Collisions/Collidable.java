@@ -6,8 +6,8 @@ package Collisions;/* This file was created by: Ofek Atar*/
 import Main.Vec3;
 
 public abstract class Collidable {
-    private static final CollisionResolver defColResolver = AABBCollisionResolver.getInstance();
-    private static final CollisionDetector defColDetector = AABBCollisionDetector.getInstance();
+    protected static final CollisionResolver defColResolver = AABBCollisionResolver.getInstance();
+    protected static final CollisionDetector defColDetector = AABBCollisionDetector.getInstance();
 
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
@@ -49,5 +49,13 @@ public abstract class Collidable {
 
     public Vec3 getMaxVals() {
         return maxVals;
+    }
+
+    public CollisionResolver getcResolver() {
+        return cResolver;
+    }
+
+    public CollisionDetector getcDetector() {
+        return cDetector;
     }
 }

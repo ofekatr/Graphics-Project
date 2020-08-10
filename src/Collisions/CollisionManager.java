@@ -32,8 +32,9 @@ public class CollisionManager {
     }
 
     public void handleCollisions() {
+        Collidable playerC = new PlayerCollidable(this.playerPos, Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT);
         for (Collidable c : this.collidables) {
-            if (c.detectCollision(this.player)) {
+            if (c.detectCollision(playerC)) {
                 c.resolveCollision(this.playerPos);
             }
         }

@@ -20,9 +20,4 @@ public class TexturedLoadedDrawable extends TexturedDrawable {
         super.draw(gl);
         this.loaded.draw(gl);
     }
-
-    @Override
-    public void timePassed() {
-        super.timePassed();
-    }
 }

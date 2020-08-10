@@ -26,6 +26,7 @@ import java.util.*;
 import java.util.zip.*;
 import javax.media.opengl.*;
 
+import CollidableDrawables.CollidableDrawable;
 import Drawables.*;
 import Main.Vec3;
 import com.jogamp.opengl.util.*;
@@ -322,7 +323,7 @@ public class WavefrontObjectLoader_DisplayList {
                 minVals.setZ(point[2]);
         }
 
-        return new TexturedLoadedCollidableDrawable(minVals, maxVals, id, txtrFileName);
+        return new CollidableDrawable(minVals, maxVals, new TexturedLoadedDrawable(txtrFileName, id));
     }
 
     public static Drawable loadTexturedObject(GL2 inGL, String inFileName, String txtrFileName) {
