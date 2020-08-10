@@ -4,8 +4,8 @@
 */
 package CollidableDrawables;
 
-import Collisions.CollisionDetector;
-import Collisions.CollisionResolver;
+import Collidables.CollisionDetector;
+import Collidables.CollisionResolver;
 import Drawables.Drawable;
 import Drawables.TranslationDrawableDecorator;
 import Main.Vec3;

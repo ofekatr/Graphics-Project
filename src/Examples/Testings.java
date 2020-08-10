@@ -4,19 +4,18 @@ package Examples;/* This file was created by: Ofek Atar*/
 */
 
 import CollidableDrawables.TranslatedCollidableDrawable;
-import Collisions.Collidable;
+import Collidables.Collidable;
 import Main.Vec3;
 
 public class Testings {
     public static void main(String[] args) {
-        Vec3 minVals = new Vec3(-5, 0.33f, 40);
-        Vec3 maxVals = new Vec3(5, 0.6f, 41);
-        Vec3 transVals = new Vec3(-10.3f, 5, 15);
+        foo(new String(), new String());
+    }
 
-        Collidable c1 = new TranslatedCollidableDrawable(minVals, maxVals, null, transVals);
-        System.out.println(c1.getMinVals());
-        System.out.println(c1.getMaxVals());
+    private static void foo(Object... objects) {
+        System.out.println("what");
+        System.out.println(objects.getClass().getName());
+        System.out.println(objects.getClass().getSimpleName());
 
-        // It works properly.
     }
 }

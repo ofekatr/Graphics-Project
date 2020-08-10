@@ -61,4 +61,10 @@ public class Vec3 {
     public String toString() {
         return "{ " + this.getX() + ", " + this.getY() + ", " + this.getZ() + "}";
     }
+
+    public boolean equals(Vec3 other) {
+        return this.getX() == other.getX() &&
+                this.getY() == other.getY() &&
+                this.getZ() == other.getZ();
+    }
 }

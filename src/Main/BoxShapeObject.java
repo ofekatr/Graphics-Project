@@ -3,11 +3,10 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
-import Collisions.Collidable;
+import Collidables.Collidable;
 import Drawables.Drawable;
 
 import javax.media.opengl.GL2;
-import java.util.ArrayList;
 
 public class BoxShapeObject extends Collidable implements Drawable {
     BoxShapeObject() {

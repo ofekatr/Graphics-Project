@@ -1,6 +1,5 @@
-package Collisions;
+package Collidables;
 
-import Main.Player;
 import Main.Vec3;
 
 public interface CollisionResolver {

@@ -33,7 +33,7 @@ import com.jogamp.opengl.util.*;
 
 import static javax.media.opengl.GL2.*;
 
-public class WavefrontObjectLoader_DisplayList {
+public class ObjectLoader {
 
     private String OBJModelPath;                                    //the path to the model file
     private ArrayList<float[]> vData = new ArrayList<float[]>();    //list of vertex coordinates
@@ -48,7 +48,7 @@ public class WavefrontObjectLoader_DisplayList {
     private int PolyCount = 0;                                      //the model polygon count
     private boolean init = true;
 
-    public WavefrontObjectLoader_DisplayList(String inModelPath) {
+    public ObjectLoader(String inModelPath) {
         BaseLogging.getInstance().info("LOADING WAVEFRONT OBJECT MODEL " + inModelPath);
         OBJModelPath = inModelPath;
         LoadOBJModel(OBJModelPath);
@@ -326,18 +326,18 @@ public class WavefrontObjectLoader_DisplayList {
         return new CollidableDrawable(minVals, maxVals, new TexturedLoadedDrawable(txtrFileName, id));
     }
 
-    public static Drawable loadTexturedObject(GL2 inGL, String inFileName, String txtrFileName) {
+    public static Drawable loadDrawable(GL2 inGL, String inFileName, String txtrFileName) {
         int tDisplayListID = inGL.glGenLists(1);
-        WavefrontObjectLoader_DisplayList tWaveFrontObjectModel = new WavefrontObjectLoader_DisplayList(inFileName);
+        ObjectLoader tWaveFrontObjectModel = new ObjectLoader(inFileName);
         inGL.glNewList(tDisplayListID, GL_COMPILE);
         tWaveFrontObjectModel.drawModel(inGL);
         inGL.glEndList();
         return new TexturedLoadedDrawable(txtrFileName, tDisplayListID);
     }
 
-    public static CollidableDrawable loadWavefrontObjectAsDisplayList(GL2 inGL, String inFileName, String txtrFileName) {
+    public static CollidableDrawable loadCollidableDrawable(GL2 inGL, String inFileName, String txtrFileName) {
         int tDisplayListID = inGL.glGenLists(1);
-        WavefrontObjectLoader_DisplayList tWaveFrontObjectModel = new WavefrontObjectLoader_DisplayList(inFileName);
+        ObjectLoader tWaveFrontObjectModel = new ObjectLoader(inFileName);
         inGL.glNewList(tDisplayListID, GL_COMPILE);
         CollidableDrawable cd = tWaveFrontObjectModel.createCollidableDrawable(tDisplayListID, txtrFileName);
         tWaveFrontObjectModel.drawModel(inGL);

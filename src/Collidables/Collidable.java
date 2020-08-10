@@ -1,4 +1,4 @@
-package Collisions;/* This file was created by: Ofek Atar*/
+package Collidables;/* This file was created by: Ofek Atar*/
 /*
  Ofek Atar 209373802
 */

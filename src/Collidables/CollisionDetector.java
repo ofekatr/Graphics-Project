@@ -1,6 +1,4 @@
-package Collisions;
-
-import Main.Vec3;
+package Collidables;
 
 public interface CollisionDetector {
     // Check if the drawables intersected

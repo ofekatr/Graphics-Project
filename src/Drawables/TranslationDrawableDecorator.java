@@ -29,9 +29,10 @@ public class TranslationDrawableDecorator extends DrawableDecorator {
     }
 
     @Override
-    public void transform(Vec3 params) {
-        this.measures = new Vec3(this.measures.getX() + params.getX(),
-                this.measures.getY() + params.getY(),
-                this.measures.getZ() + params.getZ());
+    public void transform(Vec3... params) {
+        Vec3 transVals = params[0];
+        this.measures = new Vec3(this.measures.getX() + transVals.getX(),
+                this.measures.getY() + transVals.getY(),
+                this.measures.getZ() + transVals.getZ());
     }
 }

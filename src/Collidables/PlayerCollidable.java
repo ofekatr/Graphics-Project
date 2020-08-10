@@ -2,7 +2,7 @@
 /*
  Ofek Atar 209373802
 */
-package Collisions;
+package Collidables;
 
 import Main.Vec3;
 

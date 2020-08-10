@@ -2,13 +2,10 @@
 /*
  Ofek Atar 209373802
 */
-package Collisions;
+package Collidables;
 
-import Main.Camera;
 import Main.Player;
 import Main.Vec3;
-
-import static java.lang.Float.max;
 
 public class AABBCollisionResolver implements CollisionResolver {
 

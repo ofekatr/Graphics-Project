@@ -13,7 +13,7 @@ import javax.media.opengl.glu.GLU;
 
 import CollidableDrawables.CollidableDrawable;
 import InputHandlers.CameraInputAdapter;
-import ObjectLoading.WavefrontObjectLoader_DisplayList;
+import ObjectLoading.ObjectLoader;
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
 import com.jogamp.newt.event.KeyEvent;
@@ -88,7 +88,7 @@ public class Game extends KeyAdapter implements GLEventListener {
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        this.gun = WavefrontObjectLoader_DisplayList.loadWavefrontObjectAsDisplayList(gl,
+        this.gun = ObjectLoader.loadCollidableDrawable(gl,
                 "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg");
 
         // Keyboard

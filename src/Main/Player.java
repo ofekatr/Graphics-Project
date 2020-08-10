@@ -3,8 +3,8 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
-import Collisions.Collidable;
-import Collisions.CollisionManager;
+import Collidables.Collidable;
+import Collidables.CollisionManager;
 import MathLib.MathUtils;
 
 public class Player {

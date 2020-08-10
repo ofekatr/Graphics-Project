@@ -16,7 +16,7 @@ public abstract class DrawableDecorator implements Drawable {
         this.d = d;
     }
 
-    public abstract void transform(Vec3 params);
+    public abstract void transform(Vec3... params);
 
     @Override
     public void draw(GL2 gl) {

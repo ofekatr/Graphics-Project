@@ -14,7 +14,7 @@ public class ObserverDrawableDecorator {
         this.d = d;
     }
 
-    public void update(Vec3 params) {
+    public void update(Vec3... params) {
         this.d.transform(params);
     }
 }
