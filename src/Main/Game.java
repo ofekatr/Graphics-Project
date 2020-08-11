@@ -13,6 +13,7 @@ import javax.media.opengl.glu.GLU;
 
 import CollidableDrawables.CollidableDrawable;
 import CollidableDrawables.TranslatedCollidableDrawable;
+import Collidables.CollisionManager;
 import Drawables.*;
 import InputHandlers.CameraInputHandler;
 import MathLib.MathUtils;
@@ -99,6 +100,7 @@ public class Game extends KeyAdapter implements GLEventListener {
                 new Vec3(1, 1, 1),
                 new BoxShapeObject(),
                 new Vec3(0, 0, -4));
+        CollisionManager.getProjectilesCollisionManager().addCollidable(this.box);
         this.player.addCollidable(this.box);
 
         // Keyboard
@@ -189,7 +191,5 @@ public class Game extends KeyAdapter implements GLEventListener {
 
     @Override
     public void dispose(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
     }
 }

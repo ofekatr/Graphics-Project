@@ -198,7 +198,5 @@ public class TextureDemo extends KeyAdapter implements GLEventListener {
 
     @Override
     public void dispose(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
     }
 }

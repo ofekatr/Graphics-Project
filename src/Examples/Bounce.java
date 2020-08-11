@@ -67,7 +67,6 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void display(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
         moveBall();
         GL2 gl = arg0.getGL().getGL2();//get the GL object
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT); //clear the depth buffer and the color buffer
@@ -119,8 +118,6 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void displayChanged(GLAutoDrawable arg0, boolean arg1, boolean arg2) {
-        // TODO Auto-generated method stub
-
     }
 
     public float SIN(float x)
@@ -180,7 +177,6 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void init(GLAutoDrawable drawable) {
-        // TODO Auto-generated method stub
         if (drawable instanceof Window) {
             Window window = (Window) drawable;
             window.addKeyListener(this);
@@ -202,7 +198,6 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
-        // TODO Auto-generated method stub
         GL2 gl = arg0.getGL().getGL2();//get the GL object
         gl.glViewport(arg1, arg2, arg3, arg4);
         gl.glMatrixMode(GL2.GL_PROJECTION);
@@ -238,7 +233,6 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void keyPressed(KeyEvent arg0) {
-        // TODO Auto-generated method stub
         if (arg0.getKeyCode()== KeyEvent.VK_ESCAPE) {
             System.exit(0);
         }
@@ -246,28 +240,18 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
     }
 
     public void keyReleased(KeyEvent arg0) {
-        // TODO Auto-generated method stub
-
     }
 
     public void keyTyped(KeyEvent arg0) {
-        // TODO Auto-generated method stub
-
     }
 
     public void mouseDragged(MouseEvent arg0) {
-        // TODO Auto-generated method stub
-
     }
 
     public void mouseMoved(MouseEvent arg0) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public void dispose(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
     }
 }

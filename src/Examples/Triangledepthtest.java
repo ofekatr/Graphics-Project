@@ -102,8 +102,6 @@ public class Triangledepthtest implements GLEventListener {
 
     @Override
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height ) {
-
-        // TODO Auto-generated method stub
         final GL2 gl = drawable.getGL().getGL2();
         if( height <= 0 )
             height = 1;
@@ -119,8 +117,6 @@ public class Triangledepthtest implements GLEventListener {
     }
 
     public static void main( String[] args ) {
-
-        // TODO Auto-generated method stub
         final GLProfile profile = GLProfile.get( GLProfile.GL2 );
         GLCapabilities capabilities = new GLCapabilities( profile );
 

@@ -1,9 +1,9 @@
 package Main;
 
 public class RadiusCollider {
-    private Vec3 pos;
-    private float radius;
-    private float height;
+    protected Vec3 pos;
+    protected float radius;
+    protected float height;
 
     public RadiusCollider(Vec3 pos, float radius, float height) {
         this.pos = pos;

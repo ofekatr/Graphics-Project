@@ -18,5 +18,6 @@ public class Projectile extends RadiusCollider {
 
     public void translate(Vec3 params) {
         this.translatedCollidable.translate(params);
+        this.pos = Vec3.sum(this.pos, params);
     }
 }
