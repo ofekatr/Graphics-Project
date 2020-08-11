@@ -3,6 +3,7 @@ package Collidables;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import Main.RadiusCollider;
 import Main.Vec3;
 
 public abstract class Collidable {
@@ -11,8 +12,8 @@ public abstract class Collidable {
 
     private CollisionResolver cResolver;
     private CollisionDetector cDetector;
-    private final Vec3 minVals;
-    private final Vec3 maxVals;
+    private Vec3 minVals;
+    private Vec3 maxVals;
 
     public Collidable(CollisionResolver cResolver, CollisionDetector cDetector, Vec3 minVals, Vec3 maxVals) {
         this.cResolver = cResolver;
@@ -39,8 +40,8 @@ public abstract class Collidable {
         return this.cDetector.detectCollision(player, this);
     }
 
-    public void resolveCollision(Vec3 playerPos) {
-        this.cResolver.resolveCollision(playerPos, this);
+    public void resolveCollision(RadiusCollider rc) {
+        this.cResolver.resolveCollision(rc, this);
     }
 
     public Vec3 getMinVals() {
@@ -49,6 +50,14 @@ public abstract class Collidable {
 
     public Vec3 getMaxVals() {
         return maxVals;
+    }
+
+    protected void setMinVals(Vec3 minVals) {
+        this.minVals = minVals;
+    }
+
+    protected void setMaxVals(Vec3 maxVals) {
+        this.maxVals = maxVals;
     }
 
     public CollisionResolver getcResolver() {

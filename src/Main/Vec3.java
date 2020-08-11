@@ -3,6 +3,8 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import MathLib.MathUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,6 +56,12 @@ public class Vec3 {
         return vals.get(Axes.Y);
     }
 
+    public static Vec3 sum(Vec3 v1, Vec3 v2) {
+        return new Vec3(v1.getX() + v2.getX(),
+                v1.getY() + v2.getY(),
+                v1.getZ() + v2.getZ());
+    }
+
     public float getZ() {
         return vals.get(Axes.Z);
     }
@@ -63,8 +71,10 @@ public class Vec3 {
     }
 
     public boolean equals(Vec3 other) {
-        return this.getX() == other.getX() &&
-                this.getY() == other.getY() &&
-                this.getZ() == other.getZ();
+        Vec3 norm1 = new Vec3(MathUtils.normalize(this.getArray())),
+                norm2 = new Vec3(MathUtils.normalize(other.getArray()));
+        return norm1.getX() == norm2.getX() &&
+                norm1.getY() == norm2.getY() &&
+                norm1.getZ() == norm2.getZ();
     }
 }

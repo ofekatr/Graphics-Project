@@ -9,9 +9,10 @@ import Main.Vec3;
 public class PlayerCollidable extends Collidable {
 
     public PlayerCollidable(Vec3 playerPos, float playerRadius, float playerHeight) {
-        super(defColResolver, defColDetector, new Vec3(playerPos.getX() + playerRadius, playerPos.getY(), playerPos.getZ() + playerRadius),
+        super(defColResolver, defColDetector,
                 new Vec3(playerPos.getX() - playerRadius, playerPos.getY() - playerHeight,
-                        playerPos.getZ() - playerRadius));
+                        playerPos.getZ() - playerRadius),
+                new Vec3(playerPos.getX() + playerRadius, playerPos.getY(), playerPos.getZ() + playerRadius));
     }
 
 }

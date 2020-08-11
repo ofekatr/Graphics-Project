@@ -16,7 +16,11 @@ public class Observable {
         this.observers.add(observer);
     }
 
-    public void notifyAll(Vec3 params) {
+    public void unsubscribe(ObserverDrawableDecorator observer) {
+        this.observers.remove(observer);
+    }
+
+    public void notifyAll(Vec3... params) {
         for (ObserverDrawableDecorator observer : this.observers) {
             observer.update(params);
         }

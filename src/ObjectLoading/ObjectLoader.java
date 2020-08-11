@@ -136,14 +136,14 @@ public class ObjectLoader {
         for (int loop = 1; loop < sdata.length; loop++) {
             String s = sdata[loop];
             String[] temp = s.split("/");
-            vdata[loop - 1] = Integer.valueOf(temp[0]);         //always add vertex indices
+            vdata[loop - 1] = Integer.valueOf(temp[0]);         //always sum vertex indices
             if (temp.length > 1) {                              //we have v and vt data
-                vtdata[loop - 1] = Integer.valueOf(temp[1]);    //add in vt indices
+                vtdata[loop - 1] = Integer.valueOf(temp[1]);    //sum in vt indices
             } else {
                 vtdata[loop - 1] = 0;                           //if no vt data is present fill in zeros
             }
             if (temp.length > 2) {                              //we have v, vt, and vn data
-                vndata[loop - 1] = Integer.valueOf(temp[2]);    //add in vn indices
+                vndata[loop - 1] = Integer.valueOf(temp[2]);    //sum in vn indices
             } else {
                 vndata[loop - 1] = 0;                           //if no vn data is present fill in zeros
             }

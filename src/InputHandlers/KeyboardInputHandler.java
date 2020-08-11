@@ -3,7 +3,10 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import Collidables.CollisionManager;
+import Main.Camera;
 import Main.Player;
+import Main.RadiusCollider;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -18,37 +21,24 @@ public class KeyboardInputHandler extends KeyAdapter {
 
     private Map<Character, Runnable> map = new HashMap<>();
     private Set<Character> pressed = new HashSet<>();
-    private Player player;
+    private Camera camera;
+    private CollisionManager collisionManager;
 
-    public KeyboardInputHandler(Player player) {
-        this.player = player;
+    public KeyboardInputHandler(Camera camera) {
+        this.camera = camera;
         initializeMap();
     }
-
-    public KeyboardInputHandler() {
-        this.player = new Player();
-        initializeMap();
-    }
-
-//    public Main.Vec3 getPos() {
-//        return this.player.getCamera().getPos();
-//    }
-//
-//    public Main.Vec3 getUp() {
-//        return this.player.getCamera().getUp();
-//    }
-//
-//    public Main.Vec3 getLookAt() {
-//        return this.player.getCamera().getLookAt();
-//    }
 
     private void initializeMap() {
-        this.addKeyHandler(UP, () -> this.player.translatef(0f, 0f, 1));
-        this.addKeyHandler(DOWN, () -> this.player.translatef(0f, 0f, -1f));
-        this.addKeyHandler(LEFT, () -> this.player.translatef(-1f, 0f, 0f));
-        this.addKeyHandler(RIGHT, () -> this.player.translatef(1f, 0f, 0f));
+        this.addKeyHandler(UP, () -> this.camera.translatef(0f, 0f, 1));
+        this.addKeyHandler(DOWN, () -> this.camera.translatef(0f, 0f, -1f));
+        this.addKeyHandler(LEFT, () -> this.camera.translatef(-1f, 0f, 0f));
+        this.addKeyHandler(RIGHT, () -> this.camera.translatef(1f, 0f, 0f));
     }
 
+    public void setCollisionManager(CollisionManager collisionManager) {
+        this.collisionManager = collisionManager;
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -63,8 +53,8 @@ public class KeyboardInputHandler extends KeyAdapter {
             if (r != null)
                 r.run();
         }
-
-        System.out.println(this.player.getCamera().getPos().toString());
+        this.collisionManager.handleCollisions(new RadiusCollider(this.camera.getPos(),
+                Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT));
     }
 
     protected void addKeyHandler(char ch, Runnable f) {

@@ -56,9 +56,9 @@ public class Bounce extends KeyAdapter implements GLEventListener , MouseMotionL
         animator.add(canvas);
 
         final Bounce bounce = new Bounce();
-        canvas.addGLEventListener(bounce);	//add the bounce as an event listener for GLCanvas events
+        canvas.addGLEventListener(bounce);	//sum the bounce as an event listener for GLCanvas events
 
-        frame.add(canvas, java.awt.BorderLayout.CENTER);	//add the canvas to the frame
+        frame.add(canvas, java.awt.BorderLayout.CENTER);	//sum the canvas to the frame
         frame.validate();
 
         frame.setVisible(true);

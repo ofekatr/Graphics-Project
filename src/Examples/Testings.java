@@ -13,9 +13,5 @@ public class Testings {
     }
 
     private static void foo(Object... objects) {
-        System.out.println("what");
-        System.out.println(objects.getClass().getName());
-        System.out.println(objects.getClass().getSimpleName());
-
     }
 }

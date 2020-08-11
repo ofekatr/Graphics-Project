@@ -3,21 +3,22 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import Collidables.CollisionManager;
+import Main.Camera;
+import Main.ObservablesManager;
 import Main.Player;
 import Main.Vec3;
 
 import java.awt.event.*;
 
-public class CameraInputAdapter extends Player implements MouseListener, MouseMotionListener, KeyListener {
+public class CameraInputHandler implements MouseListener, MouseMotionListener, KeyListener {
     private MouseInputHandler mouse;
     private KeyboardInputHandler keyboard;
+    private Camera camera;
+    private CollisionManager collisionManager;
 
-    public CameraInputAdapter(Vec3 pos, Vec3 x, Vec3  y, Vec3 z) {
-        super(pos, x, y, z);
-        this.initializeHandlers();
-    }
-
-    public CameraInputAdapter() {
+    public CameraInputHandler(Camera camera) {
+        this.camera = camera;
         this.initializeHandlers();
     }
 
@@ -25,9 +26,14 @@ public class CameraInputAdapter extends Player implements MouseListener, MouseMo
         this.keyboard.addKeyHandler(ch, r);
     }
 
+    public void setCollisionManager(CollisionManager collisionManager){
+        this.collisionManager = collisionManager;
+        this.keyboard.setCollisionManager(this.collisionManager);
+    }
+
     private void initializeHandlers() {
-        this.mouse = new MouseInputHandler(this);
-        this.keyboard = new KeyboardInputHandler(this);
+        this.mouse = new MouseInputHandler(this.camera);
+        this.keyboard = new KeyboardInputHandler(this.camera);
     }
 
     @Override

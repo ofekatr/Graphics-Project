@@ -3,21 +3,39 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
-import Collidables.Collidable;
+import CollidableDrawables.CollidableDrawable;
+import Collidables.CollisionDetector;
+import Collidables.CollisionResolver;
 import Drawables.Drawable;
+import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureIO;
 
 import javax.media.opengl.GL2;
+import java.io.File;
+import java.io.IOException;
 
-public class BoxShapeObject extends Collidable implements Drawable {
-    BoxShapeObject() {
-        super(new Vec3(-1, -1, -1), new Vec3(1, 1, 1));
+public class BoxShapeObject implements Drawable {
+
+    private Texture texture;
+
+    public BoxShapeObject() {
+        String filename = "resources/Picture1.jpg";
+        try {
+            this.texture = TextureIO.newTexture(new File(filename), true);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
-
     @Override
+
     public void draw(GL2 gl) {
         float material[] = {0.8f, 0.8f, 0.8f, 1.0f};
         gl.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE, material, 0);
+        this.texture.enable(gl);
+        this.texture.bind(gl);
+
         gl.glBegin(GL2.GL_QUADS);
         // Front Face
         gl.glNormal3f(0, 0, 1);

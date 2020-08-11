@@ -5,39 +5,44 @@
 package Collidables;
 
 import Main.Player;
+import Main.RadiusCollider;
 import Main.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CollisionManager {
+    private static CollisionManager projectilesCollisionManager;
     private List<Collidable> collidables;
-    private final Player player;
-    private final Vec3 playerPos;
 
     public CollisionManager(List<Collidable> collidables, Player player) {
         this.collidables = collidables;
-        this.player = player;
-        this.playerPos = player.getCamera().getPos();
     }
 
-    public CollisionManager(Player player) {
-        this.player = player;
-        this.playerPos = player.getCamera().getPos();
+    public CollisionManager() {
         this.collidables = new ArrayList<>();
+    }
+
+    public static CollisionManager getProjectilesCollisionManager(){
+        if (projectilesCollisionManager == null){
+            projectilesCollisionManager = new CollisionManager();
+        }
+        return projectilesCollisionManager;
     }
 
     public void addCollidable(Collidable c) {
         this.collidables.add(c);
     }
 
-    public void handleCollisions() {
-        Collidable playerC = new PlayerCollidable(this.playerPos, Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT);
+    public boolean handleCollisions(RadiusCollider rc) {
+        Collidable playerC = new PlayerCollidable(rc.getPos(), rc.getRadius(), rc.getHeight());
         for (Collidable c : this.collidables) {
             if (c.detectCollision(playerC)) {
-                c.resolveCollision(this.playerPos);
+                c.resolveCollision(rc);
+                return true;
             }
         }
+        return false;
     }
 
 }

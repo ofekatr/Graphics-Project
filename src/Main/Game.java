@@ -12,7 +12,10 @@ import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
 
 import CollidableDrawables.CollidableDrawable;
-import InputHandlers.CameraInputAdapter;
+import CollidableDrawables.TranslatedCollidableDrawable;
+import Drawables.*;
+import InputHandlers.CameraInputHandler;
+import MathLib.MathUtils;
 import ObjectLoading.ObjectLoader;
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
@@ -25,10 +28,10 @@ import com.jogamp.opengl.util.texture.Texture;
 public class Game extends KeyAdapter implements GLEventListener {
     public static int width = 1280;
     public static int height = 720;
-    private final CameraInputAdapter inputHandler;
+    private final Player player;
 
-    private Texture texture;
-    private CollidableDrawable gun;
+    private Drawable gun;
+    private CollidableDrawable box;
 
     static GLU glu = new GLU();
     static GLCanvas canvas = new GLCanvas();
@@ -36,7 +39,7 @@ public class Game extends KeyAdapter implements GLEventListener {
     static Animator animator = new Animator(canvas);
 
     public Game() {
-        this.inputHandler = new CameraInputAdapter();
+        this.player = new Player();
 //        this.initSchedueler();
     }
 
@@ -44,15 +47,17 @@ public class Game extends KeyAdapter implements GLEventListener {
         final GL2 gl = drawable.getGL().getGL2();
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
-        float[] camPos = this.inputHandler.getCamera().getPos().getArray(),
-                camLookAt = this.inputHandler.getLookAt().getArray(),
-                camUp = this.inputHandler.getCamera().getUp().getArray();
+        float[] camPos = this.player.getCamera().getPos().getArray(),
+                camLookAt = this.player.getLookAt().getArray(),
+                camUp = this.player.getCamera().getUp().getArray();
         glu.gluLookAt(camPos[0], camPos[1], camPos[2], camLookAt[0], camLookAt[1], camLookAt[2],
                 camUp[0], camUp[1], camUp[2]);
 
-        gl.glTranslatef(-0.33097804f, 0.8000004f, -2.705684f);
-
+        this.box.draw(gl);
         this.gun.draw(gl);
+
+        gl.glPopMatrix();
+
     }
 
     public void displayChanged(GLAutoDrawable drawable,
@@ -71,11 +76,12 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
     public void init(GLAutoDrawable gLDrawable) {
+        CameraInputHandler inputHandler = this.player.getCamera().getInputHandler();
         this.setInvisibleCursor();
-        this.inputHandler.addKeyHandler((char) KeyEvent.VK_ESCAPE, () -> exit());
-        canvas.addKeyListener(this.inputHandler);
-        canvas.addMouseMotionListener(this.inputHandler);
-        canvas.addMouseListener(this.inputHandler);
+        inputHandler.addKeyHandler((char) KeyEvent.VK_ESCAPE, () -> exit());
+        canvas.addKeyListener(inputHandler);
+        canvas.addMouseMotionListener(inputHandler);
+        canvas.addMouseListener(inputHandler);
         final GL2 gl = gLDrawable.getGL().getGL2();
         gl.glShadeModel(GL2.GL_SMOOTH);              // Enable Smooth Shading
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);    // Black Background
@@ -88,8 +94,12 @@ public class Game extends KeyAdapter implements GLEventListener {
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        this.gun = ObjectLoader.loadCollidableDrawable(gl,
-                "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg");
+        this.createGun(gl);
+        this.box = new TranslatedCollidableDrawable(new Vec3(-1, -1, -1),
+                new Vec3(1, 1, 1),
+                new BoxShapeObject(),
+                new Vec3(0, 0, -4));
+        this.player.addCollidable(this.box);
 
         // Keyboard
         if (gLDrawable instanceof Window) {
@@ -101,6 +111,13 @@ public class Game extends KeyAdapter implements GLEventListener {
         }
     }
 
+    private void createGun(GL2 gl) {
+        this.gun = new TranslatedPinnedDrawable(ObjectLoader.loadDrawable(gl,
+                "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg"),
+                new Vec3(this.player.getCamera().getPos().getX() + 0.75f,
+                        - this.player.getCamera().getPos().getY() / 4,
+                        this.player.getCamera().getPos().getZ()- 3.1f));
+    }
 
     public void reshape(GLAutoDrawable drawable, int x,
                         int y, int width1, int height1) {
@@ -128,6 +145,10 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
     public void keyTyped(KeyEvent e) {
+    }
+
+    public static Point calcMidPoint() {
+        return new Point(canvas.getWidth() / 2, canvas.getHeight() / 2);
     }
 
     public static void exit() {

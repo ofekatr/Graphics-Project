@@ -5,6 +5,7 @@
 package Collidables;
 
 import Main.Player;
+import Main.RadiusCollider;
 import Main.Vec3;
 
 public class AABBCollisionResolver implements CollisionResolver {
@@ -22,43 +23,54 @@ public class AABBCollisionResolver implements CollisionResolver {
     }
 
     @Override
-    public void resolveCollision(Vec3 playerPos, Collidable c) {
+    public void resolveCollision(RadiusCollider rc, Collidable c) {
 
+        Vec3 pos = rc.getPos();
         Vec3 colMinVals = c.getMinVals(), colMaxVals = c.getMaxVals();
 
         float minX = colMinVals.getX(),
                 maxX = colMaxVals.getX(),
                 minZ = colMinVals.getZ(),
                 maxZ = colMaxVals.getZ();
-        float dWest = Math.abs(playerPos.getX() - minX),
-                dEast = Math.abs(playerPos.getX() - maxX),
-                dNorth = Math.abs(playerPos.getZ() - minZ),
-                dSouth = Math.abs(playerPos.getZ() - maxZ);
+        float dWest = Math.abs(pos.getX() - (minX - rc.getRadius())),
+                dEast = Math.abs(pos.getX() - (maxX + rc.getRadius())),
+                dNorth = Math.abs(pos.getZ() - (minZ - rc.getRadius())),
+                dSouth = Math.abs(pos.getZ() - (maxZ + rc.getRadius()));
+
         float dMin = Math.min(Math.min(dWest, dEast), Math.min(dNorth, dSouth));
-        if (dMin == dWest)
-            this.resolveWest(playerPos, minX);
-        if (dMin == dEast)
-            this.resolveEast(playerPos, maxX);
-        if (dMin == dNorth)
-            this.resolveNorth(playerPos, minZ);
-        if (dMin == dSouth)
-            this.resolveSouth(playerPos, maxZ);
+
+        if (dMin == dWest) {
+            this.resolveWest(rc, minX);
+            return;
+        }
+        if (dMin == dEast) {
+            this.resolveEast(rc, maxX);
+            return;
+        }
+        if (dMin == dNorth) {
+            this.resolveNorth(rc, minZ);
+            return;
+        }
+        if (dMin == dSouth) {
+            this.resolveSouth(rc, maxZ);
+            return;
+        }
         throw new RuntimeException("Reached an unexpected end of switch case in AABBCollisionResolver.");
     }
 
-    private void resolveWest(Vec3 playerPos, float west) {
-        playerPos.setX(west - Player.PLAYER_RADIUS);
+    private void resolveWest(RadiusCollider rc, float west) {
+        rc.getPos().setX(west - rc.getRadius());
     }
 
-    private void resolveEast(Vec3 playerPos, float east) {
-        playerPos.setX(east + Player.PLAYER_RADIUS);
+    private void resolveEast(RadiusCollider rc, float east) {
+        rc.getPos().setX(east + rc.getRadius());
     }
 
-    private void resolveNorth(Vec3 playerPos, float north) {
-        playerPos.setZ(north - Player.PLAYER_RADIUS);
+    private void resolveNorth(RadiusCollider rc, float north) {
+        rc.getPos().setZ(north - rc.getRadius());
     }
 
-    private void resolveSouth(Vec3 playerPos, float south) {
-        playerPos.setZ(south + Player.PLAYER_RADIUS);
+    private void resolveSouth(RadiusCollider rc, float south) {
+        rc.getPos().setZ(south + rc.getRadius());
     }
 }

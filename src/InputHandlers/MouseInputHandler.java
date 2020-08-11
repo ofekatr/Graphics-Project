@@ -3,26 +3,27 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
-import Main.Axes;
-import Main.Game;
-import Main.Player;
+import CollidableDrawables.TranslatedCollidableDrawable;
+import Collidables.CollisionManager;
+import Collidables.TranslatedCollidable;
+import Main.*;
+import MathLib.MathUtils;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class MouseInputHandler implements MouseMotionListener, MouseListener {
-    private Player camera;
-    private Point prev;
+    private Camera camera;
     private boolean ignore;
 
-    public MouseInputHandler(Player camera) {
+    public MouseInputHandler(Camera camera) {
         this.camera = camera;
         this.ignore = false;
-        this.prev = MouseInfo.getPointerInfo().getLocation();
     }
 
     private Point calcMidPoint() {
-        return new Point(Game.width / 2, Game.height / 2);
+        return Game.calcMidPoint();
     }
 
     @Override
@@ -37,15 +38,13 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
         if (!this.ignore) {
 //            10 38
 //            8 32
-            int x = e.getX() + 10, y = e.getY() + 38;
+            int x = e.getX() + 8, y = e.getY() + 31;
 //            int x = e.getX(), y = e.getY();
             float xDiff = Math.abs(midX - x), yDiff = Math.abs(midY - y);
-//            System.out.println(xDiff + " " + yDiff);
             float angX = this.calcAngle(midX, x, Game.width);
             this.camera.rotatef(angX, Axes.Y);
             float angY = this.calcAngle(midY, y, Game.height);
             this.camera.rotatef(angY, Axes.X);
-            this.prev = e.getPoint();
             this.centerMouse();
         }
         this.ignore = !this.ignore;
@@ -73,12 +72,27 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println(SwingUtilities.isLeftMouseButton(e) ? "Left" : "Right");
+        Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
+        new Thread(() -> {
+            Projectile proj = new Projectile(this.camera.getPos(),
+                    new TranslatedCollidable(this.camera.getPos(), 0.001f, 0.001f,
+                            new Vec3(0, 0, 0)));
+
+            CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
+            for (int i = 0; i < 100; i++) {
+                System.out.println(i);
+                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.1f)));
+                if (collisionManager.handleCollisions(proj))
+                    break;
+            }
+            System.out.println("No collisions occurred.");
+        }).start();
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
     }
 
     @Override

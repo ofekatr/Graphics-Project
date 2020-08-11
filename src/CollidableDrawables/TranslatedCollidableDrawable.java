@@ -24,8 +24,11 @@ public class TranslatedCollidableDrawable extends CollidableDrawable {
     }
 
     private static Vec3 translateVals(Vec3 vals, Vec3 params) {
-        return new Vec3(vals.getX() + params.getX(),
-                vals.getY() + params.getY(),
-                vals.getZ() + params.getZ());
+        return Vec3.sum(vals, params);
+    }
+
+    private void translate(Vec3 params){
+        this.setMinVals(Vec3.sum(this.getMinVals(), params));
+        this.setMaxVals(Vec3.sum(this.getMaxVals(), params));
     }
 }

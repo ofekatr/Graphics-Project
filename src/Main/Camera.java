@@ -3,6 +3,7 @@ package Main;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
+import InputHandlers.CameraInputHandler;
 import MathLib.MathUtils;
 
 import java.util.HashMap;
@@ -17,11 +18,15 @@ public class Camera {
     private final Map<Axes, Float> axisMovementSteps = new HashMap<>();
     private final Map<Axes, Float> axisRotationSteps = new HashMap<>();
 
+    private CameraInputHandlerObservablesManager inputHandler;
+
     public Camera(Vec3 pos, Vec3 up, Vec3 lookAt) {
         this.pos = pos;
         this.up = up;
         this.lookAt = lookAt;
         this.calcSideways();
+
+        this.inputHandler = new CameraInputHandlerObservablesManager(this);
 
         this.initAxisStep();
         this.initAxisRotationSteps();
@@ -32,6 +37,8 @@ public class Camera {
         this.up = up;
         this.lookAt = lookAt;
         this.sideways = sideways;
+
+        this.inputHandler = new CameraInputHandlerObservablesManager(this);
 
         this.initAxisStep();
         this.initAxisRotationSteps();
@@ -81,6 +88,7 @@ public class Camera {
         return pos;
     }
 
+
     public Vec3 getUp() {
         return up;
     }
@@ -88,6 +96,10 @@ public class Camera {
     public Vec3 getLookAt() {
 //        return new Main.Vec3(MathUtils.sumVectors(this.pos.getArray(), this.lookAt.getArray()));
         return this.lookAt;
+    }
+
+    public CameraInputHandlerObservablesManager getInputHandler() {
+        return this.inputHandler;
     }
 
     public Vec3 getSideways() {
@@ -109,40 +121,26 @@ public class Camera {
                 transMat = MathUtils.generateVectorRotationMatrix(x, alpha);
                 this.setUp(new Vec3(MathUtils.product(transMat, y0)));
                 this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
-//                resY = MathUtils.sumVectors(MathUtils.vectorScalarProduct(y, (float) Math.cos(alpha)),
-//                        MathUtils.vectorScalarProduct(z, (float) -Math.sin(alpha)));
-//                resZ = MathUtils.sumVectors(MathUtils.vectorScalarProduct(z, (float) Math.cos(alpha)),
-//                        MathUtils.vectorScalarProduct(y, (float) Math.sin(alpha)));
+                this.inputHandler.notifyRot(new Vec3(alpha, 0, 0), this.sideways.clone());
                 return;
             case Y:
                 alpha *= this.axisRotationSteps.get(Axes.Y);
                 transMat = MathUtils.generateVectorRotationMatrix(y0, alpha);
                 this.setSideways(new Vec3(MathUtils.product(transMat, x)));
                 this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
+                this.inputHandler.notifyRot(new Vec3(alpha, 1, 0), this.up.clone());
                 return;
-
-//                resX = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.cos(alpha)),
-//                        MathUtils.vectorScalarProduct(z, (float) -Math.sin(alpha)));
-//                resZ = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.sin(alpha)),
-//                        MathUtils.vectorScalarProduct(z, (float) Math.cos(alpha)));
             case Z:
                 alpha *= this.axisRotationSteps.get(Axes.Z);
                 transMat = MathUtils.generateVectorRotationMatrix(z, alpha);
                 this.setSideways(new Vec3(MathUtils.product(transMat, x)));
                 this.setUp(new Vec3(MathUtils.product(transMat, y0)));
-//                System.out.println(Arrays.toString(z));
+                this.inputHandler.notifyRot(new Vec3(alpha, 2, 0), this.lookAt.clone());
                 return;
-
-//                resX = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.cos(alpha)),
-//                        MathUtils.vectorScalarProduct(y, (float) -Math.sin(alpha)));
-//                resY = MathUtils.sumVectors(MathUtils.vectorScalarProduct(x, (float) Math.sin(alpha)),
-//                        MathUtils.vectorScalarProduct(y, (float) Math.cos(alpha)));
-//                break;
         }
         this.setSideways(new Vec3(MathUtils.normalize(resX)));
         this.setUp(new Vec3(MathUtils.normalize(resY)));
         this.setLookAt(new Vec3(MathUtils.normalize(resZ)));
-//        System.out.println(Arrays.toString(this.camera.get(Main.Axes.X)) + " " + Arrays.toString(this.camera.get(Main.Axes.Y)) + " " + Arrays.toString(this.camera.get(Main.Axes.Z)));
     }
 
     public void translatef(float x, float y, float z) {
@@ -157,5 +155,7 @@ public class Camera {
         for (int i = 0; i < res.length; i++)
             res = MathUtils.sumVectors(res, MathUtils.vectorScalarProduct(coords[i].getArray(), args[i] * axisSteps[i]));
         this.setPos(new Vec3(MathUtils.sumVectors(this.getPos().getArray(), res)));
+
+        this.inputHandler.notifyTrans(new Vec3(res.clone()));
     }
 }
