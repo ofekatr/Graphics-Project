@@ -54,7 +54,7 @@ public class KeyboardInputHandler extends KeyAdapter {
                 r.run();
         }
         this.collisionManager.handleCollisions(new RadiusCollider(this.camera.getPos(),
-                Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT));
+                Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT), false);
     }
 
     protected void addKeyHandler(char ch, Runnable f) {

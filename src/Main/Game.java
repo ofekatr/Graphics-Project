@@ -2,6 +2,8 @@ package Main;
 
 import java.awt.*;
 import java.awt.image.MemoryImageSource;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -13,26 +15,22 @@ import javax.media.opengl.glu.GLU;
 
 import CollidableDrawables.CollidableDrawable;
 import CollidableDrawables.TranslatedCollidableDrawable;
-import Collidables.CollisionManager;
+import Collidables.Collidable;
 import Drawables.*;
 import InputHandlers.CameraInputHandler;
-import MathLib.MathUtils;
 import ObjectLoading.ObjectLoader;
 import com.jogamp.newt.Window;
 import com.jogamp.newt.event.KeyAdapter;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.awt.AWTKeyAdapter;
 import com.jogamp.opengl.util.Animator;
-import com.jogamp.opengl.util.texture.Texture;
 
 
 public class Game extends KeyAdapter implements GLEventListener {
     public static int width = 1280;
     public static int height = 720;
     private final Player player;
-
-    private Drawable gun;
-    private CollidableDrawable box;
+    private final CollidablesAndDrawablesManager entitiesManager;
 
     static GLU glu = new GLU();
     static GLCanvas canvas = new GLCanvas();
@@ -40,8 +38,9 @@ public class Game extends KeyAdapter implements GLEventListener {
     static Animator animator = new Animator(canvas);
 
     public Game() {
-        this.player = new Player();
-//        this.initSchedueler();
+        List<Collidable> lst = new ArrayList<>();
+        this.player = new Player(lst);
+        this.entitiesManager = new CollidablesAndDrawablesManager(lst);
     }
 
     public void display(GLAutoDrawable drawable) {
@@ -54,8 +53,7 @@ public class Game extends KeyAdapter implements GLEventListener {
         glu.gluLookAt(camPos[0], camPos[1], camPos[2], camLookAt[0], camLookAt[1], camLookAt[2],
                 camUp[0], camUp[1], camUp[2]);
 
-        this.box.draw(gl);
-        this.gun.draw(gl);
+        this.entitiesManager.draw(gl);
 
         gl.glPopMatrix();
 
@@ -95,13 +93,7 @@ public class Game extends KeyAdapter implements GLEventListener {
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        this.createGun(gl);
-        this.box = new TranslatedCollidableDrawable(new Vec3(-1, -1, -1),
-                new Vec3(1, 1, 1),
-                new BoxShapeObject(),
-                new Vec3(0, 0, -4));
-        CollisionManager.getProjectilesCollisionManager().addCollidable(this.box);
-        this.player.addCollidable(this.box);
+        EntitiesCreator.createEntities(this.player.getPos(), this.entitiesManager, gl);
 
         // Keyboard
         if (gLDrawable instanceof Window) {
@@ -114,11 +106,11 @@ public class Game extends KeyAdapter implements GLEventListener {
     }
 
     private void createGun(GL2 gl) {
-        this.gun = new TranslatedPinnedDrawable(ObjectLoader.loadDrawable(gl,
+        this.entitiesManager.addDrawable(new TranslatedPinnedDrawable(ObjectLoader.loadDrawable(gl,
                 "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg"),
                 new Vec3(this.player.getCamera().getPos().getX() + 0.75f,
-                        - this.player.getCamera().getPos().getY() / 4,
-                        this.player.getCamera().getPos().getZ()- 3.1f));
+                        -this.player.getCamera().getPos().getY() / 4,
+                        this.player.getCamera().getPos().getZ() - 2.7f)));
     }
 
     public void reshape(GLAutoDrawable drawable, int x,

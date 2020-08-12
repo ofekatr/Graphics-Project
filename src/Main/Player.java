@@ -7,6 +7,8 @@ import Collidables.Collidable;
 import Collidables.CollisionManager;
 import MathLib.MathUtils;
 
+import java.util.List;
+
 public class Player extends RadiusCollider {
     public static final float PLAYER_RADIUS = 1.5f;
     public static final float PLAYER_HEIGHT = 3;
@@ -27,14 +29,14 @@ public class Player extends RadiusCollider {
         this.collisionManager = new CollisionManager();
     }
 
-    public Player() {
+    public Player(List<Collidable> collidableList) {
         super(new Vec3(defPos.clone()), PLAYER_RADIUS, PLAYER_HEIGHT);
 //        super(new Vec3(defPos.clone()), PLAYER_RADIUS, PLAYER_HEIGHT);
         this.camera = new Camera(new Vec3(defPos.clone()),
                 new Vec3(defUp.clone()),
                 new Vec3(defLookAt.clone()),
                 new Vec3(defSideways.clone()));
-        this.collisionManager = new CollisionManager();
+        this.collisionManager = new CollisionManager(collidableList);
         this.camera.getInputHandler().setCollisionManager(this.collisionManager);
     }
 

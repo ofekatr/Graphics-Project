@@ -15,7 +15,7 @@ public class CollisionManager {
     private static CollisionManager projectilesCollisionManager;
     private List<Collidable> collidables;
 
-    public CollisionManager(List<Collidable> collidables, Player player) {
+    public CollisionManager(List<Collidable> collidables) {
         this.collidables = collidables;
     }
 
@@ -34,11 +34,11 @@ public class CollisionManager {
         this.collidables.add(c);
     }
 
-    public boolean handleCollisions(RadiusCollider rc) {
-        Collidable playerC = new PlayerCollidable(rc.getPos(), rc.getRadius(), rc.getHeight());
+    public boolean handleCollisions(RadiusCollider rc, boolean isProjectile) {
+        Collidable entityCollidable = new PlayerCollidable(rc.getPos(), rc.getRadius(), rc.getHeight());
         for (Collidable c : this.collidables) {
-            if (c.detectCollision(playerC)) {
-                c.resolveCollision(rc);
+            if (c.detectCollision(entityCollidable)) {
+                c.resolveCollision(rc, isProjectile);
                 return true;
             }
         }

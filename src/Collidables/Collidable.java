@@ -40,7 +40,7 @@ public abstract class Collidable {
         return this.cDetector.detectCollision(player, this);
     }
 
-    public void resolveCollision(RadiusCollider rc) {
+    public void resolveCollision(RadiusCollider rc, boolean isProjectile) {
         this.cResolver.resolveCollision(rc, this);
     }
 
