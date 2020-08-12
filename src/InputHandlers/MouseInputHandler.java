@@ -3,7 +3,6 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
  Ofek Atar 209373802
 */
 
-import CollidableDrawables.TranslatedCollidableDrawable;
 import Collidables.CollisionManager;
 import Collidables.TranslatedCollidable;
 import Main.*;
@@ -16,10 +15,20 @@ import java.awt.event.*;
 public class MouseInputHandler implements MouseMotionListener, MouseListener {
     private Camera camera;
     private boolean ignore;
+    private Robot robot;
+    private boolean init;
+    private int xOffset;
+    private int yOffset;
 
     public MouseInputHandler(Camera camera) {
         this.camera = camera;
         this.ignore = false;
+        this.init = true;
+        try {
+            this.robot = new Robot();
+        } catch (AWTException ex) {
+            throw new RuntimeException("Failed creating robot for MouseInputHandler.");
+        }
     }
 
     private Point calcMidPoint() {
@@ -33,12 +42,16 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        if (init){
+            this.centerMouse();
+            return;
+        }
         Point midPoint = this.calcMidPoint();
         int midX = midPoint.x, midY = midPoint.y;
         if (!this.ignore) {
 //            10 38
 //            8 32
-            int x = e.getX() + 8, y = e.getY() + 31;
+            int x = e.getX(), y = e.getY();
 //            int x = e.getX(), y = e.getY();
             float xDiff = Math.abs(midX - x), yDiff = Math.abs(midY - y);
             float angX = this.calcAngle(midX, x, Game.width);
@@ -58,21 +71,16 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
     }
 
     private void centerMouse() {
-        try {
-            // These coordinates are screen coordinates
-            Point midPoint = this.calcMidPoint();
-            int xCoord = midPoint.x, yCoord = midPoint.y;
+        // These coordinates are screen coordinates
+        Point midPoint = this.calcMidPoint();
+        int xCoord = midPoint.x + this.xOffset, yCoord = midPoint.y + this.yOffset;
 
-            // Move the cursor
-            Robot robot = new Robot();
-            robot.mouseMove(xCoord, yCoord);
-        } catch (AWTException ex) {
-        }
+        // Move the cursor
+        this.robot.mouseMove(xCoord, yCoord);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(SwingUtilities.isLeftMouseButton(e) ? "Left" : "Right");
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
         new Thread(() -> {
             Projectile proj = new Projectile(this.camera.getPos(),
@@ -82,7 +90,7 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
             CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
             for (int i = 0; i < 100; i++) {
                 proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.1f)));
-                if (collisionManager.handleCollisions(proj)){
+                if (collisionManager.handleCollisions(proj)) {
                     // TODO: Continue working on gun logic.
                     System.out.println("COLLISION HAPPENED");
                     break;
@@ -94,6 +102,13 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        System.out.println(e.getX() + ",,," + e.getY());
+        if (this.init) {
+            this.xOffset = this.calcMidPoint().x - e.getX();
+            this.yOffset = this.calcMidPoint().y - e.getY();
+            System.out.println(xOffset + ", " + yOffset);
+            this.init = false;
+        }
     }
 
     @Override
@@ -103,7 +118,6 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-//        centerMouse();
     }
 
     @Override
