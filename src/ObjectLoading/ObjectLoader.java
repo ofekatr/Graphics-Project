@@ -27,9 +27,14 @@ import java.util.zip.*;
 import javax.media.opengl.*;
 
 import CollidableDrawables.CollidableDrawable;
+import CollidableDrawables.Portal;
+import Collidables.Collidable;
+import Collidables.TranslatedCollidable;
 import Drawables.*;
 import Main.Vec3;
 import com.jogamp.opengl.util.*;
+import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureIO;
 
 import static javax.media.opengl.GL2.*;
 
@@ -306,6 +311,11 @@ public class ObjectLoader {
     }
 
     private CollidableDrawable createCollidableDrawable(int id, String txtrFileName) {
+        Collidable c = this.createCollidable();
+        return new CollidableDrawable(c.getMinVals(), c.getMaxVals(), new TexturedLoadedDrawable(txtrFileName, id));
+    }
+
+    private Collidable createCollidable() {
         Vec3 minVals = new Vec3(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY),
                 maxVals = new Vec3(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
         for (float[] point : this.vData) {
@@ -322,8 +332,7 @@ public class ObjectLoader {
             if (point[2] < minVals.getZ())
                 minVals.setZ(point[2]);
         }
-
-        return new CollidableDrawable(minVals, maxVals, new TexturedLoadedDrawable(txtrFileName, id));
+        return new Collidable(minVals, maxVals);
     }
 
     public static Drawable loadDrawable(GL2 inGL, String inFileName, String txtrFileName) {
@@ -343,6 +352,23 @@ public class ObjectLoader {
         tWaveFrontObjectModel.drawModel(inGL);
         inGL.glEndList();
         return cd;
+    }
+
+    public static void loadPortal(GL2 inGL, String inFileName, String txtrFileName) {
+        int tDisplayListID = inGL.glGenLists(1);
+        ObjectLoader tWaveFrontObjectModel = new ObjectLoader(inFileName);
+        inGL.glNewList(tDisplayListID, GL_COMPILE);
+        Collidable c = tWaveFrontObjectModel.createCollidable();
+        tWaveFrontObjectModel.drawModel(inGL);
+        inGL.glEndList();
+        Texture texture;
+        try {
+            texture = TextureIO.newTexture(new File(txtrFileName), true);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        Portal.setParams(texture, tDisplayListID, c.getMinVals(), c.getMaxVals());
     }
 
 }

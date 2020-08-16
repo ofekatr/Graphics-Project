@@ -45,7 +45,7 @@ public class Crosshair implements Drawable {
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glPopMatrix();
         gl.glEnable(GL2.GL_DEPTH_TEST);
-        gl.glEnable(GL.GL_CULL_FACE);
+//        gl.glEnable(GL.GL_CULL_FACE);
     }
 
     private void drawCrosshair(GL2 gl) {

@@ -5,12 +5,9 @@
 package Main;
 
 import CollidableDrawables.CollidableDrawable;
-import Collidables.Collidable;
-import Drawables.Drawable;
-
-import java.util.List;
 
 public class PortalAdder {
+    private CollidableDrawable portalInstance;
     private CollidablesAndDrawablesManager manager;
 
     public PortalAdder(CollidablesAndDrawablesManager manager) {
@@ -18,10 +15,14 @@ public class PortalAdder {
     }
 
     public void addPortal(CollidableDrawable portal) {
+        if (this.portalInstance != null) {
+            this.removePortal(this.portalInstance);
+        }
+        this.portalInstance = portal;
         this.manager.addCollidableDrawable(portal);
     }
 
-    public void removePortal(CollidableDrawable portal){
+    public void removePortal(CollidableDrawable portal) {
         this.manager.removeCollidableDrawable(portal);
     }
 }

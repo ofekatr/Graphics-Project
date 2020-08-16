@@ -102,11 +102,9 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println(e.getX() + ",,," + e.getY());
         if (this.init) {
             this.xOffset = this.calcMidPoint().x - e.getX();
             this.yOffset = this.calcMidPoint().y - e.getY();
-            System.out.println(xOffset + ", " + yOffset);
             this.init = false;
         }
     }

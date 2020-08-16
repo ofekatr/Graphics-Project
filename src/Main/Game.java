@@ -105,14 +105,6 @@ public class Game extends KeyAdapter implements GLEventListener {
         }
     }
 
-    private void createGun(GL2 gl) {
-        this.entitiesManager.addDrawable(new TranslatedPinnedDrawable(ObjectLoader.loadDrawable(gl,
-                "resources/Portal Gun.obj", "resources/textures/portalgun_col.jpg"),
-                new Vec3(this.player.getCamera().getPos().getX() + 0.75f,
-                        -this.player.getCamera().getPos().getY() / 4,
-                        this.player.getCamera().getPos().getZ() - 2.7f)));
-    }
-
     public void reshape(GLAutoDrawable drawable, int x,
                         int y, int width1, int height1) {
         height = height1;

@@ -6,7 +6,7 @@ package Collidables;/* This file was created by: Ofek Atar*/
 import Main.RadiusCollider;
 import Main.Vec3;
 
-public abstract class Collidable {
+public class Collidable {
     protected static final CollisionResolver defColResolver = AABBCollisionResolver.getInstance();
     protected static final CollisionDetector defColDetector = AABBCollisionDetector.getInstance();
 

@@ -18,10 +18,9 @@ public class BoxShapeObject implements Drawable {
 
     private Texture texture;
 
-    public BoxShapeObject() {
-        String filename = "resources/Picture1.jpg";
+    public BoxShapeObject(String texturePath) {
         try {
-            this.texture = TextureIO.newTexture(new File(filename), true);
+            this.texture = TextureIO.newTexture(new File(texturePath), true);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

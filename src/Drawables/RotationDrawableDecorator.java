@@ -43,10 +43,6 @@ public class RotationDrawableDecorator extends DrawableDecorator {
 
     @Override
     public void draw(GL2 gl) {
-        if (this.alpha != 0) {
-            System.out.println(this.axis.toString());
-            System.out.println(this.alpha);
-        }
         gl.glRotatef(step * alpha, this.axis.getX(), this.axis.getY(), this.axis.getZ());
         super.draw(gl);
     }
