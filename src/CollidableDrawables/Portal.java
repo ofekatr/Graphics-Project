@@ -84,6 +84,8 @@ public class Portal extends CollidableDrawable {
                 // Nothing.
             }
         });
+
+
     }
 
 //    public static void setParams(Texture texture1, int portalId1, Vec3 minVals1, Vec3 maxVals1) {
@@ -92,6 +94,11 @@ public class Portal extends CollidableDrawable {
 //        minVals = minVals1;
 //        maxVals = maxVals1;
 //    }
+
+    @Override
+    public boolean detectCollision(Collidable player) {
+        return super.detectCollision(player);
+    }
 
     private static Vec3 initPortal(RadiusCollider rc, Collidable c) {
         float minX = c.getMinVals().getX(), maxX = c.getMaxVals().getX(),
@@ -102,6 +109,7 @@ public class Portal extends CollidableDrawable {
                 east = posX > maxX,
                 west = posX < minX;
         float halfPortalWidth = portalWidth / 2;
+        System.out.println(posX + ", " + posZ);
 
         maxVals.setY(Player.PLAYER_HEIGHT);
         minVals.setY(0);

@@ -35,8 +35,16 @@ public class AABBCollisionDetector implements CollisionDetector {
         float bXMax = colMaxVals.getX(), bXMin = colMinVals.getX(),
                 bYMax = colMaxVals.getY(), bYMin = colMinVals.getY(),
                 bZMax = colMaxVals.getZ(), bZMin = colMinVals.getZ();
-        return (aXMin <= bXMax && aXMax >= bXMin &&
-                aYMin <= bYMax && aYMax >= bYMin &&
-                aZMin <= bZMax && aZMax >= bZMin);
+
+        boolean b1 = aXMin <= bXMax,
+                b2 = aXMax >= bXMin,
+                b3 = aYMin <= bYMax,
+                b4 = aYMax >= bYMin,
+                b5 = aZMin <= bZMax,
+                b6 = aZMax >= bZMin;
+        return b1 && b2 && b3 && b4 && b5 && b6;
+//        return (aXMin <= bXMax && aXMax >= bXMin &&
+//                aYMin <= bYMax && aYMax >= bYMin &&
+//                aZMin <= bZMax && aZMax >= bZMin);
     }
 }

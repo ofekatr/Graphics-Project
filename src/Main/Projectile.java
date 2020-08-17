@@ -8,8 +8,8 @@ import Collidables.TranslatedCollidable;
 
 public class Projectile extends RadiusCollider {
     private TranslatedCollidable translatedCollidable;
-    public static final float PROJECTILE_RADIUS = 0.001f;
-    public static final float PROJECTILE_HEIGHT = 0.001f;
+    public static final float PROJECTILE_RADIUS = 0.3f;
+    public static final float PROJECTILE_HEIGHT = 0.3f;
 
     public Projectile(Vec3 pos, TranslatedCollidable translatedCollidable) {
         super(pos, PROJECTILE_RADIUS, PROJECTILE_HEIGHT);

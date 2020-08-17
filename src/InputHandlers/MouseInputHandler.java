@@ -42,7 +42,7 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (init){
+        if (init) {
             this.centerMouse();
             return;
         }
@@ -84,12 +84,13 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
         new Thread(() -> {
             Projectile proj = new Projectile(this.camera.getPos(),
-                    new TranslatedCollidable(this.camera.getPos(), 0.001f, 0.001f,
+                    new TranslatedCollidable(this.camera.getPos(), Projectile.PROJECTILE_RADIUS,
+                            Projectile.PROJECTILE_HEIGHT,
                             new Vec3(0, 0, 0)));
 
             CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
             for (int i = 0; i < 10000; i++) {
-                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.01f)));
+                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.1f)));
                 if (collisionManager.handleCollisions(proj, true)) {
                     // TODO: Continue working on gun logic.
                     System.out.println("COLLISION HAPPENED");

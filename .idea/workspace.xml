@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/CollidableDrawables/Directions.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/Directions.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
-      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" />
+      <change beforePath="$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java" afterPath="$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java" />
       <change beforePath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" afterPath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" afterPath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Vec3.java" afterPath="$PROJECT_DIR$/src/Main/Vec3.java" />
-      <change beforePath="$PROJECT_DIR$/src/ObjectLoading/ObjectLoader.java" afterPath="$PROJECT_DIR$/src/ObjectLoading/ObjectLoader.java" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Projectile.java" afterPath="$PROJECT_DIR$/src/Main/Projectile.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +23,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PortalSurface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1224#1225#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MouseInputHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="91" column="89" lean-forward="false" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
+            <state relative-caret-position="180">
+              <caret line="85" column="41" lean-forward="false" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Projectile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -38,20 +59,38 @@
       <file leaf-file-name="Portal.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Portal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+            <state relative-caret-position="243">
+              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3584#3585#0" expanded="true" />
+                <element signature="e#3636#3637#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Directions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Directions.java">
+      <file leaf-file-name="Collidable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Collidables/Collidable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="310">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding>
+                <element signature="e#1384#1385#0" expanded="true" />
+                <element signature="e#1451#1452#0" expanded="true" />
+                <element signature="e#1528#1529#0" expanded="true" />
+                <element signature="e#1585#1586#0" expanded="true" />
+                <element signature="e#1647#1648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AABBCollisionDetector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -60,8 +99,8 @@
       <file leaf-file-name="AABBCollisionResolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionResolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="266">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,14 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main</find>
-      <find>display</find>
-      <find>drawelip</find>
-      <find>10</find>
-      <find>numv</find>
-      <find>displa</find>
-      <find>color</find>
-      <find>game</find>
       <find>enable</find>
       <find>blend</find>
       <find>init</find>
@@ -105,7 +136,6 @@
       <find>creator</find>
       <find>mex</find>
       <find>system</find>
-      <find>mouseinputhandler</find>
       <find>clicked</find>
       <find>super.resove</find>
       <find>super.</find>
@@ -120,6 +150,15 @@
       <find>dir =</find>
       <find>draw</find>
       <find>draw(</find>
+      <find>mouseinputhandler</find>
+      <find>mouseclicked</find>
+      <find>minvals.set</find>
+      <find>i</find>
+      <find>initportal</find>
+      <find>system.out.</find>
+      <find>detect</find>
+      <find>new proje</find>
+      <find>resolve</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Joker\Desktop\X Files\University Courses\Computer Graphics\Graphics-Project</dir>
@@ -136,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Collisions/PinnedCollidable.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/CollidableDrawable.java" />
         <option value="$PROJECT_DIR$/src/Drawables/ObserverDrawableDecorator.java" />
         <option value="$PROJECT_DIR$/src/Drawables/DrawableDecorator.java" />
@@ -162,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/Collidables/CollisionResolver.java" />
         <option value="$PROJECT_DIR$/src/Collidables/TranslatedCollidable.java" />
         <option value="$PROJECT_DIR$/src/Main/RadiusCollider.java" />
-        <option value="$PROJECT_DIR$/src/Main/Projectile.java" />
         <option value="$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java" />
         <option value="$PROJECT_DIR$/src/Main/CollidablesAndMoveablesManager.java" />
         <option value="$PROJECT_DIR$/src/Collidables/CollisionManager.java" />
@@ -183,9 +220,11 @@
         <option value="$PROJECT_DIR$/src/Main/Vec3.java" />
         <option value="$PROJECT_DIR$/src/Collidables/AABBCollisionResolver.java" />
         <option value="$PROJECT_DIR$/src/Main/Player.java" />
-        <option value="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
         <option value="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Directions.java" />
+        <option value="$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java" />
+        <option value="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
+        <option value="$PROJECT_DIR$/src/Main/Projectile.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
       </list>
     </option>
@@ -685,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597611966039</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Added portal shooting logics.">
+      <created>1597684316595</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1597684316595</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -735,7 +781,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Separated classes to packages.&#10;Added collision detection interface.&#10;Added AABB collision detection class." />
     <MESSAGE value="Added Player Object class&#10;Tested AABB&#10;Added argmin, argmax methods." />
     <MESSAGE value="Added files for portal gun object." />
     <MESSAGE value="Organized classes.&#10;Added Collidable Interface.&#10;Fixed Forward and Backward movement." />
@@ -760,7 +805,8 @@
     <MESSAGE value="Once and for all, fixed that mouse listener." />
     <MESSAGE value="Added portal related classes.&#10;Added builder class for entities." />
     <MESSAGE value="Added portal visual." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added portal visual." />
+    <MESSAGE value="Added portal shooting logics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added portal shooting logics." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -771,11 +817,17 @@
           <properties />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="139" />
+      <option name="time" value="148" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -913,13 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="57" lean-forward="false" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/RadiusCollider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -938,13 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1073,17 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#1160#1161#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Vec3.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-145">
@@ -1101,16 +1128,6 @@
         <state relative-caret-position="437">
           <caret line="356" column="6" lean-forward="false" selection-start-line="356" selection-start-column="6" selection-end-line="371" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collidables/Collidable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#1585#1586#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1138,22 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="91" column="89" lean-forward="false" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/EntitiesCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -1170,12 +1171,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collidables/Collidable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#1384#1385#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1528#1529#0" expanded="true" />
+            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collidables/AABBCollisionResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="85" column="41" lean-forward="false" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Portal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="72" column="44" lean-forward="false" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        <state relative-caret-position="243">
+          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3584#3585#0" expanded="true" />
+            <element signature="e#3636#3637#0" expanded="true" />
           </folding>
         </state>
       </provider>
