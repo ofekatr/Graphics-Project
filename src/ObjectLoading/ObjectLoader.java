@@ -354,21 +354,21 @@ public class ObjectLoader {
         return cd;
     }
 
-    public static void loadPortal(GL2 inGL, String inFileName, String txtrFileName) {
-        int tDisplayListID = inGL.glGenLists(1);
-        ObjectLoader tWaveFrontObjectModel = new ObjectLoader(inFileName);
-        inGL.glNewList(tDisplayListID, GL_COMPILE);
-        Collidable c = tWaveFrontObjectModel.createCollidable();
-        tWaveFrontObjectModel.drawModel(inGL);
-        inGL.glEndList();
-        Texture texture;
-        try {
-            texture = TextureIO.newTexture(new File(txtrFileName), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        Portal.setParams(texture, tDisplayListID, c.getMinVals(), c.getMaxVals());
-    }
+//    public static void loadPortal(GL2 inGL, String inFileName, String txtrFileName) {
+//        int tDisplayListID = inGL.glGenLists(1);
+//        ObjectLoader tWaveFrontObjectModel = new ObjectLoader(inFileName);
+//        inGL.glNewList(tDisplayListID, GL_COMPILE);
+//        Collidable c = tWaveFrontObjectModel.createCollidable();
+//        tWaveFrontObjectModel.drawModel(inGL);
+//        inGL.glEndList();
+//        Texture texture;
+//        try {
+//            texture = TextureIO.newTexture(new File(txtrFileName), true);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            throw new RuntimeException(e);
+//        }
+//        Portal.setParams(texture, tDisplayListID, c.getMinVals(), c.getMaxVals());
+//    }
 
 }

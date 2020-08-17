@@ -30,11 +30,11 @@ public class PortalSurface extends CollidableDrawable {
     public void resolveCollision(RadiusCollider rc, boolean isProjectile) {
         super.resolveCollision(rc, isProjectile);
         if (isProjectile) {
-            this.createPortal(rc.getPos());
+            this.createPortal(rc);
         }
     }
 
-    private void createPortal(Vec3 transParams) {
-        this.portalAdder.addPortal(new Portal(transParams));
+    private void createPortal(RadiusCollider rc) {
+        this.portalAdder.addPortal(new Portal(rc, this));
     }
 }

@@ -88,8 +88,8 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
                             new Vec3(0, 0, 0)));
 
             CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
-            for (int i = 0; i < 100; i++) {
-                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.1f)));
+            for (int i = 0; i < 10000; i++) {
+                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.01f)));
                 if (collisionManager.handleCollisions(proj, true)) {
                     // TODO: Continue working on gun logic.
                     System.out.println("COLLISION HAPPENED");

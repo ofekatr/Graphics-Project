@@ -11,6 +11,10 @@ import java.util.Map;
 public class Vec3 {
     private final Map<Axes, Float> vals = new HashMap<>();
 
+    public Vec3() {
+        this.fillMap(0, 0, 0);
+    }
+
     public Vec3(float x, float y, float z) {
         this.fillMap(x, y, z);
     }
