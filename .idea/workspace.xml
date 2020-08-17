@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="">
+    <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="Fixed looking too high or too low camera issue.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
-      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" />
       <change beforePath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" afterPath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" afterPath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Game.java" afterPath="$PROJECT_DIR$/src/Main/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/PortalAdder.java" afterPath="$PROJECT_DIR$/src/Main/PortalAdder.java" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Camera.java" afterPath="$PROJECT_DIR$/src/Main/Camera.java" />
       <change beforePath="$PROJECT_DIR$/src/Main/Projectile.java" afterPath="$PROJECT_DIR$/src/Main/Projectile.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,64 +20,7 @@
     <SUITE FILE_PATH="coverage/Graphics_Project$Game.coverage" NAME="Game Coverage Results" MODIFIED="1597089038778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="PortalSurface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="38" column="62" lean-forward="false" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Portal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Portal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="61" column="45" lean-forward="true" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
-              <folding>
-                <element signature="e#1239#1240#0" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-                <element signature="e#1314#1315#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1396#1397#0" expanded="true" />
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1488#1489#0" expanded="true" />
-                <element signature="e#1534#1535#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
-                <element signature="e#1629#1630#0" expanded="true" />
-                <element signature="e#1691#1692#0" expanded="true" />
-                <element signature="e#1747#1748#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseInputHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="88" column="37" lean-forward="false" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main/Projectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding>
-                <element signature="e#820#821#0" expanded="true" />
-                <element signature="e#854#855#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -94,14 +33,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new game</find>
-      <find>lookat</find>
-      <find>lookat =</find>
-      <find>new camera</find>
-      <find>c</find>
-      <find>System.out.</find>
-      <find>calc</find>
-      <find>dir</find>
       <find>dir =</find>
       <find>draw</find>
       <find>draw(</find>
@@ -124,9 +55,18 @@
       <find>COLOR3F</find>
       <find>params.</find>
       <find>clicks</find>
+      <find>lookat</find>
+      <find>radians</find>
+      <find>system.</find>
+      <find>moved</find>
+      <find>SYSTEM.</find>
+      <find>setlookat</find>
+      <find>setup</find>
+      <find>translatef</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Joker\Desktop\X Files\University Courses\Computer Graphics\Graphics-Project</dir>
+      <dir>C:\Users\Joker\Desktop\X Files\University Courses\Computer Graphics\Graphics-Project\src\Main</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -151,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/ObjectLoading/BaseLogging.java" />
         <option value="$PROJECT_DIR$/src/Drawables/TranslatedPinnedDrawable.java" />
         <option value="$PROJECT_DIR$/src/Main/CameraInputHandlerObservablesManager.java" />
-        <option value="$PROJECT_DIR$/src/Main/Camera.java" />
         <option value="$PROJECT_DIR$/src/InputHandlers/CameraInputHandler.java" />
         <option value="$PROJECT_DIR$/src/Collidables/PlayerCollidable.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/TranslatedCollidableDrawable.java" />
@@ -169,7 +108,6 @@
         <option value="$PROJECT_DIR$/src/Examples/Bounce.java" />
         <option value="$PROJECT_DIR$/src/Main/Vec3.java" />
         <option value="$PROJECT_DIR$/src/Collidables/AABBCollisionResolver.java" />
-        <option value="$PROJECT_DIR$/src/Main/Player.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Directions.java" />
         <option value="$PROJECT_DIR$/src/Collidables/AABBCollisionDetector.java" />
         <option value="$PROJECT_DIR$/src/Main/Game.java" />
@@ -187,10 +125,12 @@
         <option value="$PROJECT_DIR$/src/Main/CollidablesAndDrawablesManager.java" />
         <option value="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
         <option value="$PROJECT_DIR$/src/Main/PortalAdder.java" />
-        <option value="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
         <option value="$PROJECT_DIR$/src/Main/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/Main/Player.java" />
+        <option value="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
+        <option value="$PROJECT_DIR$/src/Main/Camera.java" />
       </list>
     </option>
   </component>
@@ -234,36 +174,6 @@
               <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="CollidableDrawables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Drawables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="InputHandlers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphics-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphics-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -709,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597686491559</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added second portal logic and visuals.">
+      <created>1597694307375</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1597694307375</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -723,7 +640,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24401368" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -734,7 +650,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -759,7 +675,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added files for portal gun object." />
     <MESSAGE value="Organized classes.&#10;Added Collidable Interface.&#10;Fixed Forward and Backward movement." />
     <MESSAGE value="Fixed backward and forward movement.&#10;Added experimental cross hair." />
     <MESSAGE value="Improved experimental cross hair" />
@@ -784,7 +699,8 @@
     <MESSAGE value="Added portal visual." />
     <MESSAGE value="Added portal shooting logics." />
     <MESSAGE value="Fixed portal collision system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed portal collision system." />
+    <MESSAGE value="Added second portal logic and visuals." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added second portal logic and visuals." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -876,14 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collidables/TranslatedCollidable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InputHandlers/CameraInputHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -902,13 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="95" column="28" lean-forward="false" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -978,22 +879,6 @@
             <element signature="e#339#340#0" expanded="false" />
             <element signature="e#376#377#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,8 +1056,8 @@
         <state relative-caret-position="648">
           <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
           <folding>
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1206,22 +1091,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/Collidables/TranslatedCollidable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="88" column="37" lean-forward="false" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        <state relative-caret-position="198">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="281">
+          <caret line="34" column="75" lean-forward="false" selection-start-line="34" selection-start-column="75" selection-end-line="34" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
           <folding>
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#2148#2149#0" expanded="true" />
+            <element signature="e#2196#2197#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+            <element signature="e#2410#2411#0" expanded="true" />
+            <element signature="e#2438#2439#0" expanded="true" />
+            <element signature="e#2463#2464#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#2736#2737#0" expanded="true" />
+            <element signature="e#2769#2770#0" expanded="true" />
+            <element signature="e#2800#2801#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="60" column="67" lean-forward="false" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -53,10 +53,13 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 //            8 32
             int x = e.getX(), y = e.getY();
 //            int x = e.getX(), y = e.getY();
-            float xDiff = Math.abs(midX - x), yDiff = Math.abs(midY - y);
             float angX = this.calcAngle(midX, x, Game.width);
+            angX = Math.abs(angX) > 1 ? angX / Math.abs(angX) : angX;
+            System.out.println(angX);
             this.camera.rotatef(angX, Axes.Y);
             float angY = this.calcAngle(midY, y, Game.height);
+            angY = Math.abs(angY) > 1 ? angY/ Math.abs(angY) : angY;
+            System.out.println(angY);
             this.camera.rotatef(angY, Axes.X);
             this.centerMouse();
         }
@@ -85,23 +88,7 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
             return;
         }
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
-        new Thread(() -> {
-            Projectile proj = new Projectile(this.camera.getPos(),
-                    new TranslatedCollidable(this.camera.getPos(), Projectile.PROJECTILE_RADIUS,
-                            Projectile.PROJECTILE_HEIGHT,
-                            new Vec3(0, 0, 0)), SwingUtilities.isLeftMouseButton(e));
-
-            CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
-            for (int i = 0; i < 10000; i++) {
-                proj.translate(new Vec3(MathUtils.vectorScalarProduct(dir.getArray(), 0.1f)));
-                if (collisionManager.handleCollisions(proj, true)) {
-                    // TODO: Continue working on gun logic.
-                    System.out.println("COLLISION HAPPENED");
-                    break;
-                }
-            }
-        }).start();
-
+        new Projectile(this.camera.getPos(), dir, SwingUtilities.isLeftMouseButton(e));
     }
 
     @Override

@@ -68,11 +68,16 @@ public class Camera {
     }
 
     public void setUp(Vec3 up) {
-        this.up = up.clone();
+
+        if (Math.abs(lookAt.getY()) >= 0.01) {
+            this.up = up.clone();
+        }
     }
 
     public void setLookAt(Vec3 lookAt) {
-        this.lookAt = lookAt.clone();
+        if (Math.abs(Math.abs(lookAt.getY()) - 1) >= 0.01) {
+            this.lookAt = lookAt.clone();
+        }
     }
 
     public void setSideways(Vec3 sideways) {
