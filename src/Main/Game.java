@@ -34,7 +34,7 @@ public class Game extends KeyAdapter implements GLEventListener {
 
     static GLU glu = new GLU();
     static GLCanvas canvas = new GLCanvas();
-    static Frame frame = new Frame("Jogl 3D Shape/Rotation");
+    static Frame frame = new Frame("Portal");
     static Animator animator = new Animator(canvas);
 
     public Game() {

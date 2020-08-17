@@ -7,18 +7,26 @@ package Main;
 import CollidableDrawables.CollidableDrawable;
 
 public class PortalAdder {
-    private CollidableDrawable portalInstance;
+    private CollidableDrawable bluePortalInstance;
+    private CollidableDrawable orangePortalInstance;
     private CollidablesAndDrawablesManager manager;
 
     public PortalAdder(CollidablesAndDrawablesManager manager) {
         this.manager = manager;
     }
 
-    public void addPortal(CollidableDrawable portal) {
-        if (this.portalInstance != null) {
-            this.removePortal(this.portalInstance);
+    public void addPortal(CollidableDrawable portal, boolean isBlue) {
+        if (isBlue){
+            if (this.bluePortalInstance != null){
+                this.removePortal(this.bluePortalInstance);
+            }
+            this.bluePortalInstance = portal;
+        } else {
+            if (this.orangePortalInstance != null){
+                this.removePortal(this.orangePortalInstance);
+            }
+            this.orangePortalInstance = portal;
         }
-        this.portalInstance = portal;
         this.manager.addCollidableDrawable(portal);
     }
 

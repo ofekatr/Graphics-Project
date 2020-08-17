@@ -81,12 +81,15 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (SwingUtilities.isMiddleMouseButton(e)){
+            return;
+        }
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
         new Thread(() -> {
             Projectile proj = new Projectile(this.camera.getPos(),
                     new TranslatedCollidable(this.camera.getPos(), Projectile.PROJECTILE_RADIUS,
                             Projectile.PROJECTILE_HEIGHT,
-                            new Vec3(0, 0, 0)));
+                            new Vec3(0, 0, 0)), SwingUtilities.isLeftMouseButton(e));
 
             CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
             for (int i = 0; i < 10000; i++) {

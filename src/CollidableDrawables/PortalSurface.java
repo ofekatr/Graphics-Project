@@ -7,8 +7,8 @@ package CollidableDrawables;
 import Collidables.CollisionDetector;
 import Collidables.CollisionResolver;
 import Drawables.Drawable;
-import Drawables.TexturedLoadedDrawable;
 import Main.PortalAdder;
+import Main.Projectile;
 import Main.RadiusCollider;
 import Main.Vec3;
 
@@ -30,11 +30,12 @@ public class PortalSurface extends CollidableDrawable {
     public void resolveCollision(RadiusCollider rc, boolean isProjectile) {
         super.resolveCollision(rc, isProjectile);
         if (isProjectile) {
-            this.createPortal(rc);
+            Projectile p = (Projectile) rc;
+            this.createPortal(rc, p.getIsLeftClick());
         }
     }
 
-    private void createPortal(RadiusCollider rc) {
-        this.portalAdder.addPortal(new Portal(rc, this));
+    private void createPortal(RadiusCollider rc, boolean isBlue) {
+        this.portalAdder.addPortal(new Portal(rc, this, isBlue), isBlue);
     }
 }

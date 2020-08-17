@@ -21,19 +21,11 @@ public class EntitiesCreator {
 //        createBox(entitiesManager);
         createWall(gl, entitiesManager);
         createGun(playerPos, gl, entitiesManager);
-//        createPortal(gl, entitiesManager);
     }
-
-//    private static void createPortal(GL2 gl, CollidablesAndDrawablesManager entitiesManager) {
-//        String texturePath = texturePathPrefix + "portal/Diffuse.jpg";
-//        String objPath = objPathPrefix + "portal/Cylinder.obj";
-//        ObjectLoader.loadPortal(gl, objPath, texturePath);
-//    }
 
     private static void createWall(GL2 gl, CollidablesAndDrawablesManager entitiesManager) {
         Drawable d = new BoxShapeObject(texturePathPrefix + "wall/white-tile-texture.jpg");
 //        entitiesManager.addCollidableDrawable(box);
-//        entitiesManager.addProjectileCollidable(box);
         entitiesManager.createAndAddPortalSurface(
                 new Vec3(-1, -1, -1),
                 new Vec3(1, 1, 1),
