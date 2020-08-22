@@ -66,6 +66,12 @@ public class Vec3 {
                 v1.getZ() + v2.getZ());
     }
 
+    public static Vec3 multByScalar(Vec3 v, float alpha) {
+        return new Vec3(v.getX() * alpha,
+                v.getY() * alpha,
+                v.getZ() * alpha);
+    }
+
     public float getZ() {
         return vals.get(Axes.Z);
     }

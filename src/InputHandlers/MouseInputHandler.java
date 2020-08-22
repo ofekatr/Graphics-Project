@@ -85,17 +85,19 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
         if (SwingUtilities.isMiddleMouseButton(e) || this.camera.isFrozen()){
             return;
         }
+        if (this.init && !this.camera.isFrozen()) {
+            EntitiesCreator.changeClick2PlayVisibilitStatus();
+            this.xOffset = this.calcMidPoint().x - e.getX();
+            this.yOffset = this.calcMidPoint().y - e.getY();
+            this.init = false;
+            return;
+        }
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
         new Projectile(this.camera.getPos(), dir, SwingUtilities.isLeftMouseButton(e));
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (this.init && !this.camera.isFrozen()) {
-            this.xOffset = this.calcMidPoint().x - e.getX();
-            this.yOffset = this.calcMidPoint().y - e.getY();
-            this.init = false;
-        }
     }
 
     @Override

@@ -24,8 +24,10 @@ public class TranslationDrawableDecorator extends DrawableDecorator {
 
     @Override
     public void draw(GL2 gl) {
+        gl.glPushMatrix();
         gl.glTranslatef(this.measures.getX(), this.measures.getY(), this.measures.getZ());
         super.draw(gl);
+        gl.glPopMatrix();
     }
 
     @Override

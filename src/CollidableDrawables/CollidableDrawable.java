@@ -36,4 +36,12 @@ public class CollidableDrawable extends Collidable implements Drawable {
     public void timePassed() {
         this.drawable.timePassed();
     }
+
+    public Drawable getDrawable() {
+        return drawable;
+    }
+
+    public void setDrawable(Drawable drawable1) {
+        this.drawable = drawable1;
+    }
 }

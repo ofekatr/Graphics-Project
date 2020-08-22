@@ -193,6 +193,7 @@ public class Portal extends CollidableDrawable {
         maxVals.setY(Player.PLAYER_HEIGHT);
         minVals.setY(0);
         params.newPos = rc.getPos().clone();
+        params.newPos.setY(posY + rc.getHeight() / 2);
         // North/South case.
         if (!(west || east)) {
             float v1 = Math.min(posZ, (minZ + maxZ) / 2),

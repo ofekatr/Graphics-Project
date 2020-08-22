@@ -9,6 +9,7 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 import javax.media.opengl.GL2;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TexturedDrawable implements Drawable {

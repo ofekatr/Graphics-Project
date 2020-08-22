@@ -31,10 +31,9 @@ public class Projectile extends RadiusCollider {
     private void initAndStartThread() {
         new Thread(() -> {
             CollisionManager collisionManager = CollisionManager.getProjectilesCollisionManager();
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 this.translate(new Vec3(MathUtils.vectorScalarProduct(this.dir.getArray(), 0.1f)));
                 if (collisionManager.handleCollisions(this, true)) {
-                    // TODO: Continue working on gun logic.
                     System.out.println("COLLISION HAPPENED");
                     break;
                 }
