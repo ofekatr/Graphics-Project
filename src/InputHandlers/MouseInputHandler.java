@@ -55,12 +55,10 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 //            int x = e.getX(), y = e.getY();
             float angX = this.calcAngle(midX, x, Game.width);
             angX = Math.abs(angX) > 1 ? angX / Math.abs(angX) : angX;
-            System.out.println(angX);
-            this.camera.rotatef(angX, Axes.Y);
+            this.camera.rotatef(angX, Axes.Y, true);
             float angY = this.calcAngle(midY, y, Game.height);
             angY = Math.abs(angY) > 1 ? angY/ Math.abs(angY) : angY;
-            System.out.println(angY);
-            this.camera.rotatef(angY, Axes.X);
+            this.camera.rotatef(angY, Axes.X, true);
             this.centerMouse();
         }
         this.ignore = !this.ignore;

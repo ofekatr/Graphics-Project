@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Camera {
+    private static Camera instance;
+
     private Vec3 pos;
     private Vec3 up;
     private Vec3 lookAt;
@@ -20,7 +22,7 @@ public class Camera {
 
     private CameraInputHandlerObservablesManager inputHandler;
 
-    public Camera(Vec3 pos, Vec3 up, Vec3 lookAt) {
+    private Camera(Vec3 pos, Vec3 up, Vec3 lookAt) {
         this.pos = pos;
         this.up = up;
         this.lookAt = lookAt;
@@ -32,7 +34,7 @@ public class Camera {
         this.initAxisRotationSteps();
     }
 
-    public Camera(Vec3 pos, Vec3 up, Vec3 lookAt, Vec3 sideways) {
+    private Camera(Vec3 pos, Vec3 up, Vec3 lookAt, Vec3 sideways) {
         this.pos = pos;
         this.up = up;
         this.lookAt = lookAt;
@@ -42,6 +44,20 @@ public class Camera {
 
         this.initAxisStep();
         this.initAxisRotationSteps();
+    }
+
+    public static Camera getInstance() {
+        return instance;
+    }
+
+    public static Camera getInstance(Vec3 pos, Vec3 up, Vec3 lookAt, Vec3 sideways){
+        instance = new Camera(pos, up, lookAt, sideways);
+        return instance;
+    }
+
+    public static Camera getInstance(Vec3 pos, Vec3 up, Vec3 lookAt){
+        instance = new Camera(pos, up, lookAt);
+        return instance;
     }
 
     private void initAxisStep() {
@@ -111,7 +127,7 @@ public class Camera {
         return sideways;
     }
 
-    public void rotatef(float alpha, Axes axis) {
+    public void rotatef(float alpha, Axes axis, boolean isSteps) {
         float[] x = this.getSideways().getArray(),
                 y = this.getUp().getArray(),
                 y0 = {0, 1, 0},
@@ -122,21 +138,21 @@ public class Camera {
 
         switch (axis) {
             case X:
-                alpha *= this.axisRotationSteps.get(Axes.X);
+                alpha *= !isSteps ? 1 : this.axisRotationSteps.get(Axes.X);
                 transMat = MathUtils.generateVectorRotationMatrix(x, alpha);
                 this.setUp(new Vec3(MathUtils.product(transMat, y0)));
                 this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
                 this.inputHandler.notifyRot(new Vec3(alpha, 0, 0), this.sideways.clone());
                 return;
             case Y:
-                alpha *= this.axisRotationSteps.get(Axes.Y);
+                alpha *= !isSteps ? 1 : this.axisRotationSteps.get(Axes.Y);
                 transMat = MathUtils.generateVectorRotationMatrix(y0, alpha);
                 this.setSideways(new Vec3(MathUtils.product(transMat, x)));
                 this.setLookAt(new Vec3(MathUtils.product(transMat, z)));
                 this.inputHandler.notifyRot(new Vec3(alpha, 1, 0), this.up.clone());
                 return;
             case Z:
-                alpha *= this.axisRotationSteps.get(Axes.Z);
+                alpha *= !isSteps ? 1 : this.axisRotationSteps.get(Axes.Z);
                 transMat = MathUtils.generateVectorRotationMatrix(z, alpha);
                 this.setSideways(new Vec3(MathUtils.product(transMat, x)));
                 this.setUp(new Vec3(MathUtils.product(transMat, y0)));
@@ -148,7 +164,7 @@ public class Camera {
         this.setLookAt(new Vec3(MathUtils.normalize(resZ)));
     }
 
-    public void translatef(float x, float y, float z) {
+    public void translatef(float x, float y, float z, boolean isSteps) {
         Vec3[] coords = {this.getSideways(),
                 this.getUp(),
                 new Vec3(new float[]{this.getLookAt().getX(), 0, this.getLookAt().getZ()})};
@@ -158,7 +174,7 @@ public class Camera {
         float[] args = {x, y, z};
         float[] res = {0f, 0f, 0f};
         for (int i = 0; i < res.length; i++)
-            res = MathUtils.sumVectors(res, MathUtils.vectorScalarProduct(coords[i].getArray(), args[i] * axisSteps[i]));
+            res = !isSteps ? args : MathUtils.sumVectors(res, MathUtils.vectorScalarProduct(coords[i].getArray(), args[i] * axisSteps[i]));
         this.setPos(new Vec3(MathUtils.sumVectors(this.getPos().getArray(), res)));
 
         this.inputHandler.notifyTrans(new Vec3(res.clone()));

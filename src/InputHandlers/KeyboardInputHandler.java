@@ -30,10 +30,10 @@ public class KeyboardInputHandler extends KeyAdapter {
     }
 
     private void initializeMap() {
-        this.addKeyHandler(UP, () -> this.camera.translatef(0f, 0f, 1));
-        this.addKeyHandler(DOWN, () -> this.camera.translatef(0f, 0f, -1f));
-        this.addKeyHandler(LEFT, () -> this.camera.translatef(-1f, 0f, 0f));
-        this.addKeyHandler(RIGHT, () -> this.camera.translatef(1f, 0f, 0f));
+        this.addKeyHandler(UP, () -> this.camera.translatef(0f, 0f, 1, true));
+        this.addKeyHandler(DOWN, () -> this.camera.translatef(0f, 0f, -1f, true));
+        this.addKeyHandler(LEFT, () -> this.camera.translatef(-1f, 0f, 0f, true));
+        this.addKeyHandler(RIGHT, () -> this.camera.translatef(1f, 0f, 0f, true));
     }
 
     public void setCollisionManager(CollisionManager collisionManager) {
