@@ -134,6 +134,7 @@ public class Portal extends CollidableDrawable {
 
         maxVals.setY(Player.PLAYER_HEIGHT);
         minVals.setY(0);
+        // North/South case.
         if (!(west || east)) {
             float v1 = Math.min(posZ, (minZ + maxZ) / 2),
                     v2 = v1 == posZ ? (minZ + maxZ) / 2 : posZ;
@@ -142,7 +143,8 @@ public class Portal extends CollidableDrawable {
             maxVals.setZ(v2);
             minVals.setX(posX - halfPortalWidth);
             maxVals.setX(posX + halfPortalWidth);
-        } else if (!(north || south)) {
+
+        } else if (!(north || south)) { // West/East case.
             float v1 = Math.min(posX, (minX + maxX) / 2),
                     v2 = v1 == posX ? (minX + maxX) / 2 : posX;
             params.setNorthOrSouth(false);
