@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="You've reached a checkpoint.">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/CollidableDrawables/ScaledCollidableDrawable.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/CollidableDrawables/Target.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Collidables/ScaledCollidable.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Drawables/ScaleDrawableDecorator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Examples/TextureDemo.java" />
+    <list default="true" id="34ff201d-c718-47f7-a76e-dd5df17e5956" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/resources/Crosshair.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/resources/Png.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/CollidableDrawable.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/CollidableDrawable.java" />
-      <change beforePath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" afterPath="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
-      <change beforePath="$PROJECT_DIR$/src/Drawables/TexturedDrawable.java" afterPath="$PROJECT_DIR$/src/Drawables/TexturedDrawable.java" />
-      <change beforePath="$PROJECT_DIR$/src/Drawables/TranslationDrawableDecorator.java" afterPath="$PROJECT_DIR$/src/Drawables/TranslationDrawableDecorator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/Circle.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" afterPath="$PROJECT_DIR$/src/InputHandlers/MouseInputHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/BoxShapeObject.java" afterPath="$PROJECT_DIR$/src/Main/BoxShapeObject.java" />
+      <change beforePath="$PROJECT_DIR$/src/Drawables/Crosshair.java" afterPath="$PROJECT_DIR$/src/Drawables/Crosshair.java" />
+      <change beforePath="$PROJECT_DIR$/src/Drawables/ImageDrawable.java" afterPath="$PROJECT_DIR$/src/Drawables/ImageDrawable.java" />
       <change beforePath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" afterPath="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Game.java" afterPath="$PROJECT_DIR$/src/Main/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Player.java" afterPath="$PROJECT_DIR$/src/Main/Player.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Projectile.java" afterPath="$PROJECT_DIR$/src/Main/Projectile.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Vec3.java" afterPath="$PROJECT_DIR$/src/Main/Vec3.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,56 +20,7 @@
     <SUITE FILE_PATH="coverage/Graphics_Project$Game.coverage" NAME="Game Coverage Results" MODIFIED="1598100109473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="EntitiesCreator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/EntitiesCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="145" column="28" lean-forward="false" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
-              <folding>
-                <element signature="e#1224#1225#0" expanded="true" />
-                <element signature="e#1278#1279#0" expanded="true" />
-                <element signature="e#1321#1322#0" expanded="true" />
-                <element signature="e#1368#1369#0" expanded="true" />
-                <element signature="method#createImageDrawables#0;class#EntitiesCreator#0" expanded="false" />
-                <element signature="method#createWallFromPercentages#0;class#EntitiesCreator#0" expanded="false" />
-                <element signature="method#createWall#0;class#EntitiesCreator#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureDemo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Examples/TextureDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="200" column="0" lean-forward="true" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TranslatedPinnedDrawable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Drawables/TranslatedPinnedDrawable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollidablesAndDrawablesManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/CollidablesAndDrawablesManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -98,11 +33,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>repeat</find>
-      <find>box</find>
-      <find>REPEAT</find>
-      <find>init(</find>
-      <find>pro</find>
       <find>collision</find>
       <find>-4</find>
       <find>BufferOverflowException: null on thread AWT-EventQueue-0</find>
@@ -127,7 +57,12 @@
       <find>0.39</find>
       <find>walls</find>
       <find>createwall</find>
+      <find>crosshair</find>
+      <find>portal</find>
+      <find>IMAGEDRAWABLE</find>
       <find>gun</find>
+      <find>new imag</find>
+      <find>color</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -170,7 +105,6 @@
         <option value="$PROJECT_DIR$/src/Drawables/LoadedDrawable.java" />
         <option value="$PROJECT_DIR$/src/Drawables/PinnedDrawable.java" />
         <option value="$PROJECT_DIR$/src/Drawables/RotationDrawableDecorator.java" />
-        <option value="$PROJECT_DIR$/src/Drawables/Crosshair.java" />
         <option value="$PROJECT_DIR$/src/ObjectLoading/ObjectLoader.java" />
         <option value="$PROJECT_DIR$/src/Main/PortalAdder.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/PortalSurface.java" />
@@ -180,7 +114,6 @@
         <option value="$PROJECT_DIR$/src/InputHandlers/KeyboardInputHandler.java" />
         <option value="$PROJECT_DIR$/src/Main/Camera.java" />
         <option value="$PROJECT_DIR$/src/InputHandlers/CameraInputHandler.java" />
-        <option value="$PROJECT_DIR$/src/Drawables/ImageDrawable.java" />
         <option value="$PROJECT_DIR$/src/Main/Game.java" />
         <option value="$PROJECT_DIR$/src/Examples/Circle.java" />
         <option value="$PROJECT_DIR$/src/Main/BoxShapeObject.java" />
@@ -197,8 +130,10 @@
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Portal.java" />
         <option value="$PROJECT_DIR$/src/Main/Player.java" />
         <option value="$PROJECT_DIR$/src/CollidableDrawables/Target.java" />
-        <option value="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
         <option value="$PROJECT_DIR$/src/Examples/TextureDemo.java" />
+        <option value="$PROJECT_DIR$/src/Drawables/ImageDrawable.java" />
+        <option value="$PROJECT_DIR$/src/Drawables/Crosshair.java" />
+        <option value="$PROJECT_DIR$/src/Main/EntitiesCreator.java" />
       </list>
     </option>
   </component>
@@ -736,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598096087859</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="You've reached a checkpoint.">
+      <created>1598131973938</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1598131973938</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -750,17 +692,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24347825" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24347825" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27065217" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22065218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22065218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -827,12 +768,6 @@
           <line>209</line>
           <properties />
           <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main/EntitiesCreator.java</url>
-          <line>144</line>
-          <properties />
-          <option name="timeStamp" value="170" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -908,13 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Drawables/Crosshair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="70" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Drawables/RotationDrawableDecorator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -933,13 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/PortalAdder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1173,14 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Drawables/ImageDrawable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="59" column="23" lean-forward="true" selection-start-line="52" selection-start-column="8" selection-end-line="59" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/BoxShapeObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1201,14 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Portal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1237,27 +1142,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Examples/TextureDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1130">
+          <caret line="200" column="0" lean-forward="true" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/PortalAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CollidableDrawables/Portal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="34" column="62" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Drawables/Crosshair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="49" column="45" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Drawables/ImageDrawable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/EntitiesCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="145" column="28" lean-forward="false" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+        <state relative-caret-position="245">
+          <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
           <folding>
             <element signature="e#1224#1225#0" expanded="true" />
             <element signature="e#1278#1279#0" expanded="true" />
             <element signature="e#1321#1322#0" expanded="true" />
             <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="method#createImageDrawables#0;class#EntitiesCreator#0" expanded="false" />
             <element signature="method#createWallFromPercentages#0;class#EntitiesCreator#0" expanded="false" />
             <element signature="method#createWall#0;class#EntitiesCreator#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Examples/TextureDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="200" column="0" lean-forward="true" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

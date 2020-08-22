@@ -64,6 +64,7 @@ public class EntitiesCreator {
         changeClick2PlayVisibilitStatus();
         youWin = new ImageDrawable(Game.width, Game.height,
                 texturePathPrefix + "congrats/congrats.png");
+        entitiesManager.addDrawable(new Crosshair());
     }
 
     private static void createWalls(GL2 gl) {
@@ -94,8 +95,8 @@ public class EntitiesCreator {
                 new Vec3(1, 0, 1), floorRatios, WallTextures.SPIKES);
 
         // Floor3
-        createWallFromPercentages(gl, true, new Vec3(0.6f, -wallThickness, 0),
-                new Vec3(1, 0, 1), floorRatios, WallTextures.TILES);
+        createWallFromPercentages(gl, true, new Vec3(0.4f, -wallThickness, 0),
+                new Vec3(0.6f, 0, 1), floorRatios, WallTextures.SPIKES);
 
         // Barrier1
         createWallFromPercentages(gl, false, new Vec3(0.35f, 0, 0),

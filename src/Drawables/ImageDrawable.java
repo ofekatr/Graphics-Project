@@ -88,19 +88,6 @@ public class ImageDrawable implements Drawable {
         gl.glTexCoord2f(texcoords.right(), texcoords.top());
         gl.glVertex2f(x + width, y);
 
-
-
-
-
-//        gl.glTexCoord2f(0f, 1f);
-//        gl.glVertex2f(vertices[0][0], vertices[0][1]);
-//        gl.glTexCoord2f(0f, 0f);
-//        gl.glVertex2f(vertices[1][0], vertices[1][1]);
-//        gl.glTexCoord2f(1f, 0f);
-//        gl.glVertex2f(vertices[2][0], vertices[2][1]);
-//        gl.glTexCoord2f(1f, 1f);
-//        gl.glVertex2f(vertices[3][0], vertices[3][1]);
-
         gl.glEnd();
         texture.disable(gl);
 
