@@ -4,23 +4,37 @@ package InputHandlers;/* This file was created by: Ofek Atar*/
 */
 
 import Collidables.CollisionManager;
-import Main.Camera;
-import Main.Player;
-import Main.RadiusCollider;
+import Drawables.Drawable;
+import Drawables.ImageDrawable;
+import Main.*;
+import com.sun.xml.internal.stream.events.EntityReferenceEvent;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.*;
 
+enum Button {
+    UP(KeyEvent.VK_W),
+    DOWN(KeyEvent.VK_S),
+    LEFT(KeyEvent.VK_A),
+    RIGHT(KeyEvent.VK_D),
+    HELP(KeyEvent.VK_F1);
+
+    private int id;
+
+    private Button(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+}
+
 public class KeyboardInputHandler extends KeyAdapter {
 
-    private final char UP = 'w';
-    private final char DOWN = 's';
-    private final char LEFT = 'a';
-    private final char RIGHT = 'd';
-
-    private Map<Character, Runnable> map = new HashMap<>();
-    private Set<Character> pressed = new HashSet<>();
+    private Map<Integer, Runnable> map = new HashMap<>();
+    private Set<Integer> pressed = new HashSet<>();
     private Camera camera;
     private CollisionManager collisionManager;
 
@@ -30,10 +44,14 @@ public class KeyboardInputHandler extends KeyAdapter {
     }
 
     private void initializeMap() {
-        this.addKeyHandler(UP, () -> this.camera.translatef(0f, 0f, 1, true));
-        this.addKeyHandler(DOWN, () -> this.camera.translatef(0f, 0f, -1f, true));
-        this.addKeyHandler(LEFT, () -> this.camera.translatef(-1f, 0f, 0f, true));
-        this.addKeyHandler(RIGHT, () -> this.camera.translatef(1f, 0f, 0f, true));
+        this.addKeyHandler(Button.UP.getId(), () -> this.camera.translatef(0f, 0f, 1, true));
+        this.addKeyHandler(Button.DOWN.getId(), () -> this.camera.translatef(0f, 0f, -1f, true));
+        this.addKeyHandler(Button.LEFT.getId(), () -> this.camera.translatef(-1f, 0f, 0f, true));
+        this.addKeyHandler(Button.RIGHT.getId(), () -> this.camera.translatef(1f, 0f, 0f, true));
+        this.addKeyHandler(Button.HELP.getId(), () -> {
+            EntitiesCreator.changeHelpVisibilitStatus();
+            this.camera.changeFreezeStatus();
+        });
     }
 
     public void setCollisionManager(CollisionManager collisionManager) {
@@ -42,14 +60,12 @@ public class KeyboardInputHandler extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int id = e.getKeyCode();
         char keyChar = e.getKeyChar();
-        if (Character.isAlphabetic(keyChar)) {
-            keyChar = Character.toLowerCase(keyChar);
-            this.pressed.add(keyChar);
-        }
+        this.pressed.add(id);
 
-        for (char ch : this.pressed) {
-            Runnable r = this.map.get(ch);
+        for (Integer keyCode : this.pressed) {
+            Runnable r = this.map.get(keyCode);
             if (r != null)
                 r.run();
         }
@@ -57,8 +73,8 @@ public class KeyboardInputHandler extends KeyAdapter {
                 Player.PLAYER_RADIUS, Player.PLAYER_HEIGHT), false);
     }
 
-    protected void addKeyHandler(char ch, Runnable f) {
-        this.map.put(ch, f);
+    protected void addKeyHandler(int id, Runnable f) {
+        this.map.put(id, f);
     }
 
     @Override
@@ -68,10 +84,8 @@ public class KeyboardInputHandler extends KeyAdapter {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        char keyChar = e.getKeyChar();
-        if (Character.isAlphabetic(keyChar)) {
-            keyChar = Character.toLowerCase(keyChar);
-            this.pressed.remove(keyChar);
-        }
+        int keyCode = e.getKeyCode();
+        this.pressed.remove(keyCode);
+
     }
 }

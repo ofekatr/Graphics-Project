@@ -93,7 +93,8 @@ public class Game extends KeyAdapter implements GLEventListener {
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
         gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
-        EntitiesCreator.createEntities(this.player.getPos(), this.entitiesManager, gl);
+        EntitiesCreator.setEntitiesManager(this.entitiesManager);
+        EntitiesCreator.createEntities(this.player.getPos(), gl);
 
         // Keyboard
         if (gLDrawable instanceof Window) {

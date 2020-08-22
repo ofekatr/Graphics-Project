@@ -17,6 +17,8 @@ public class Camera {
     private Vec3 lookAt;
     private Vec3 sideways;
 
+    private boolean isFrozen = false;
+
     private final Map<Axes, Float> axisMovementSteps = new HashMap<>();
     private final Map<Axes, Float> axisRotationSteps = new HashMap<>();
 
@@ -128,6 +130,9 @@ public class Camera {
     }
 
     public void rotatef(float alpha, Axes axis, boolean isSteps) {
+        if (this.isFrozen){
+            return;
+        }
         float[] x = this.getSideways().getArray(),
                 y = this.getUp().getArray(),
                 y0 = {0, 1, 0},
@@ -165,6 +170,9 @@ public class Camera {
     }
 
     public void translatef(float x, float y, float z, boolean isSteps) {
+        if (this.isFrozen){
+            return;
+        }
         Vec3[] coords = {this.getSideways(),
                 this.getUp(),
                 new Vec3(new float[]{this.getLookAt().getX(), 0, this.getLookAt().getZ()})};
@@ -178,5 +186,13 @@ public class Camera {
         this.setPos(new Vec3(MathUtils.sumVectors(this.getPos().getArray(), res)));
 
         this.inputHandler.notifyTrans(new Vec3(res.clone()));
+    }
+
+    public void changeFreezeStatus(){
+        this.isFrozen = !this.isFrozen;
+    }
+
+    public boolean isFrozen() {
+        return isFrozen;
     }
 }

@@ -82,7 +82,7 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (SwingUtilities.isMiddleMouseButton(e)){
+        if (SwingUtilities.isMiddleMouseButton(e) || this.camera.isFrozen()){
             return;
         }
         Vec3 dir = new Vec3(MathUtils.normalize(this.camera.getLookAt().getArray()));
@@ -91,7 +91,7 @@ public class MouseInputHandler implements MouseMotionListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (this.init) {
+        if (this.init && !this.camera.isFrozen()) {
             this.xOffset = this.calcMidPoint().x - e.getX();
             this.yOffset = this.calcMidPoint().y - e.getY();
             this.init = false;

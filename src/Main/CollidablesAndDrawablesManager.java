@@ -46,6 +46,14 @@ public class CollidablesAndDrawablesManager implements Drawable {
         CollisionManager.getProjectilesCollisionManager().addCollidable(c);
     }
 
+    public boolean containsDrawable(Drawable d){
+        return this.drawables.contains(d);
+    }
+
+    public boolean containsCollidable(Collidable c){
+        return this.collidables.contains(c);
+    }
+
     public void addCollidableDrawable(CollidableDrawable cd) {
         this.addCollidable(cd);
         this.addDrawable(cd);
