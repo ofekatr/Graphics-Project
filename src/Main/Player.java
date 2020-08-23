@@ -12,7 +12,7 @@ import java.util.List;
 public class Player extends RadiusCollider {
     public static final float PLAYER_RADIUS = 1.5f;
     public static final float PLAYER_HEIGHT = 3;
-    private static final float[] defPos = {-40f, PLAYER_HEIGHT, 0f};
+    private static final float[] defPos = {-EntitiesCreator.floorSize * 0.8f, PLAYER_HEIGHT, EntitiesCreator.floorSize * 0.8f};
     private static final float[] defUp = {0f, 1f, 0f};
     private static final float[] defSideways = {1f, 0f, 0f};
     private static final float[] defLookAt = {0f, 0f, -1f};

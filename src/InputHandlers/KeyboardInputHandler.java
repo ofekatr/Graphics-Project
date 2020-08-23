@@ -11,6 +11,7 @@ import com.sun.xml.internal.stream.events.EntityReferenceEvent;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.security.Key;
 import java.util.*;
 
 enum Button {
@@ -18,7 +19,8 @@ enum Button {
     DOWN(KeyEvent.VK_S),
     LEFT(KeyEvent.VK_A),
     RIGHT(KeyEvent.VK_D),
-    HELP(KeyEvent.VK_F1);
+    HELP(KeyEvent.VK_F1),
+    NEXT_LEVEL(KeyEvent.VK_F2);
 
     private int id;
 
@@ -51,6 +53,10 @@ public class KeyboardInputHandler extends KeyAdapter {
         this.addKeyHandler(Button.HELP.getId(), () -> {
             EntitiesCreator.changeHelpVisibilitStatus();
             this.camera.changeFreezeStatus();
+        });
+        this.addKeyHandler(Button.NEXT_LEVEL.getId(), () -> {
+            CollisionManager.getProjectilesCollisionManager().emptyCollidables();
+            Game.notifyToLoadLevel2();
         });
     }
 

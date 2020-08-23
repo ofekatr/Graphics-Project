@@ -12,6 +12,7 @@ import Drawables.Drawable;
 
 import javax.media.opengl.GL2;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -46,11 +47,11 @@ public class CollidablesAndDrawablesManager implements Drawable {
         CollisionManager.getProjectilesCollisionManager().addCollidable(c);
     }
 
-    public boolean containsDrawable(Drawable d){
+    public boolean containsDrawable(Drawable d) {
         return this.drawables.contains(d);
     }
 
-    public boolean containsCollidable(Collidable c){
+    public boolean containsCollidable(Collidable c) {
         return this.collidables.contains(c);
     }
 
@@ -70,10 +71,20 @@ public class CollidablesAndDrawablesManager implements Drawable {
         this.addProjectileCollidable(surface);
     }
 
+    public void emptyEntities() {
+        for (Collidable c : this.collidables)
+            this.collidables.remove(c);
+        this.drawables = new CopyOnWriteArrayList<>();
+    }
+
     @Override
     public void draw(GL2 gl) {
-        for (Drawable d : this.drawables) {
-            d.draw(gl);
+        try {
+            for (Drawable d : this.drawables) {
+                d.draw(gl);
+            }
+        } catch (NullPointerException e) {
+
         }
     }
 

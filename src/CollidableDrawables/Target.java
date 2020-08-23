@@ -32,6 +32,7 @@ public class Target extends TranslatedCollidableDrawable {
                     public void draw(GL2 gl) {
                         float minX = -side, minY = -0, minZ = -side,
                                 maxX = side, maxY = height, maxZ = side;
+                        gl.glDisable(GL2.GL_LIGHTING);
                         gl.glColor3f(1, 0.6445f, 0.05859f);
                         texture.enable(gl);
                         texture.bind(gl);
@@ -77,6 +78,7 @@ public class Target extends TranslatedCollidableDrawable {
                         gl.glVertex3f(minX, maxY, maxZ);
                         gl.glVertex3f(minX, maxY, minZ);
                         gl.glEnd();
+                        gl.glEnable(GL2.GL_LIGHTING);
                         gl.glColor3f(1, 1, 1);
                     }
 

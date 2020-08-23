@@ -33,7 +33,7 @@ public class Crosshair implements Drawable {
     public void draw(GL2 gl) {
 
         float x = Game.width / 2, y = Game.height / 2;
-
+        gl.glDisable(GL2.GL_LIGHTING);
         gl.glMatrixMode(GL_PROJECTION);
         gl.glPushMatrix();
         gl.glLoadIdentity();
@@ -55,6 +55,7 @@ public class Crosshair implements Drawable {
         gl.glPopMatrix();
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glPopMatrix();
+        gl.glEnable(GL2.GL_LIGHTING);
     }
 
     private static void drawRect(GL2 gl, Vec3 color, float width, float height, float x, float y) {

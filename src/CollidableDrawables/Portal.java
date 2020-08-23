@@ -95,6 +95,7 @@ public class Portal extends CollidableDrawable {
                     public void draw(GL2 gl) {
                         PortalParams params = isBlue ? bluePortalData : orangePortalData;
                         Vec3 pos = rc.getPos();
+                        gl.glDisable(GL2.GL_LIGHTING);
                         gl.glDisable(GL2.GL_TEXTURE_2D);
                         if (isBlue) {
                             gl.glColor3f(blueColor.getX(), blueColor.getY(), blueColor.getZ());
@@ -120,6 +121,7 @@ public class Portal extends CollidableDrawable {
                             }
                         }
                         gl.glEnd();
+                        gl.glEnable(GL2.GL_LIGHTING);
                         gl.glColor3f(1, 1, 1);
                         gl.glEnable(GL2.GL_TEXTURE_2D);
                     }

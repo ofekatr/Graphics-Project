@@ -69,9 +69,9 @@ public class Camera {
     }
 
     private void initAxisRotationSteps() {
-        this.axisRotationSteps.put(Axes.X, 2f);
-        this.axisRotationSteps.put(Axes.Y, 2f);
-        this.axisRotationSteps.put(Axes.Z, 2f);
+        this.axisRotationSteps.put(Axes.X, 4f);
+        this.axisRotationSteps.put(Axes.Y, 4f);
+        this.axisRotationSteps.put(Axes.Z, 4f);
     }
 
     public Camera clone() {

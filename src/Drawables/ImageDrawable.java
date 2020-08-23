@@ -62,6 +62,10 @@ public class ImageDrawable implements Drawable {
 
     @Override
     public void draw(GL2 gl) {
+
+        gl.glDisable(GL2.GL_LIGHTING);
+        gl.glEnable(GL2.GL_2D);
+
         gl.glMatrixMode(GL_PROJECTION);
         gl.glPushMatrix();
         gl.glLoadIdentity();
@@ -71,8 +75,12 @@ public class ImageDrawable implements Drawable {
         gl.glPushMatrix();
         gl.glLoadIdentity();
 
+
+        gl.glDisable(GL2.GL_LIGHTING);
         texture.enable(gl);
         texture.bind(gl);
+
+
         gl.glBegin(GL2.GL_QUADS);
         TextureCoords texcoords = texture.getImageTexCoords();
 
@@ -89,12 +97,16 @@ public class ImageDrawable implements Drawable {
         gl.glVertex2f(x + width, y);
 
         gl.glEnd();
+        gl.glDisable(GL2.GL_2D);
+        gl.glEnable(GL2.GL_LIGHTING);
         texture.disable(gl);
-
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glPopMatrix();
         gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glPopMatrix();
+
+//        gl.glEnable(GL2.GL_LIGHT0);
+//        gl.glEnable(GL2.GL_LIGHT1);
     }
 
     @Override

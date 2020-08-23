@@ -10,6 +10,7 @@ import Main.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CollisionManager {
     private static CollisionManager projectilesCollisionManager;
@@ -20,7 +21,7 @@ public class CollisionManager {
     }
 
     public CollisionManager() {
-        this.collidables = new ArrayList<>();
+        this.collidables = new CopyOnWriteArrayList<>();
     }
 
     public static CollisionManager getProjectilesCollisionManager(){
@@ -34,14 +35,25 @@ public class CollisionManager {
         this.collidables.add(c);
     }
 
+    public void emptyCollidables(){
+        for (Collidable c: this.collidables){
+            this.collidables.remove(c);
+        }
+    }
+
     public boolean handleCollisions(RadiusCollider rc, boolean isProjectile) {
         Collidable entityCollidable = new PlayerCollidable(rc.getPos(), rc.getRadius(), rc.getHeight());
-        for (Collidable c : this.collidables) {
-            if (c.detectCollision(entityCollidable)) {
-                c.resolveCollision(rc, isProjectile);
-                return true;
+        try {
+            for (Collidable c : this.collidables) {
+                if (c.detectCollision(entityCollidable)) {
+                    c.resolveCollision(rc, isProjectile);
+                    return true;
+                }
             }
+        } catch (Exception e){
+            System.out.println("Error in collision manager.");
         }
+
         return false;
     }
 

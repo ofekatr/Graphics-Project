@@ -34,7 +34,6 @@ public class Projectile extends RadiusCollider {
             for (int i = 0; i < 100000; i++) {
                 this.translate(new Vec3(MathUtils.vectorScalarProduct(this.dir.getArray(), 0.1f)));
                 if (collisionManager.handleCollisions(this, true)) {
-                    System.out.println("COLLISION HAPPENED");
                     break;
                 }
             }
